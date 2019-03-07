@@ -33,7 +33,7 @@ class Colorize {
   String buildEscSeq(Styles style) {
     return ESC + "[${getStyle(style)}m";
   }
-  
+
   String _applyStyle(Styles style, String text) {
     return buildEscSeq(style) + text + buildEscSeq(Styles.RESET);
   }
