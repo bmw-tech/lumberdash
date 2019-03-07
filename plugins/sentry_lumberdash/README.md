@@ -9,11 +9,13 @@ It sends your logs to [Sentry](https://sentry.io/welcome/) with the proper sever
 Add `sentry_lumberdash` to your dependencies. Then pass an instance of `SentryLumberdash` to `lumberdash`:
 
 ```dart
-import 'package:sentry_lumberdash/sentry_lumberdash.dart';
 import 'package:lumberdash/lumberdash.dart';
+import 'package:sentry_lumberdash/sentry_lumberdash.dart';
 
 void main() {
-  putLumberdashToWork(withClient: SentryLumberdash(dsnKey: '123456'));
+  putLumberdashToWork(
+    withClient: SentryLumberdash.withDsn(dsnKey: 'your_key'),
+  );
   logWarning('Hello Warning');
   logFatal('Hello Fatal!');
   logMessage('Hello Message!');

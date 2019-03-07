@@ -1,7 +1,8 @@
 name: sentry_lumberdash
 description: >-
-  Lumberdash plugin that sends your logs to Sentry
-version: 1.0.0
+  Lumberdash plugin that sends your logs to Sentry with the proper
+  severity level
+version: 1.0.1
 author: Jorge Coca <jcocaramos@gmail.com>
 homepage: https://github.com/jorgecoca/lumberdash
 
