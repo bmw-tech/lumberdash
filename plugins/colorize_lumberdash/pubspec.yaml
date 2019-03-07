@@ -1,0 +1,20 @@
+name: colorize_lumberdash
+description: >-
+  Lumberdash plugin that colors your logs on the stdout depending on
+  their severity level
+version: 1.0.0
+author: Jorge Coca <jcocaramos@gmail.com>
+homepage: https://github.com/jorgecoca/lumberdash
+
+environment:
+  sdk: '>=2.0.0 <3.0.0'
+
+dependencies:
+  colorize: ^2.0.0
+  lumberdash: ^1.0.0
+  meta: ^1.0.0
+
+dev_dependencies:
+  test: ^1.4.0
+  test_coverage: ^0.2.0
+  mockito: ^4.0.0
