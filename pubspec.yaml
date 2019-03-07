@@ -1,10 +1,8 @@
 name: lumberdash
 description: >-
-  Do you need logs? Lumberdash is the answer! With a simple but 
-  powerful API, Lumberdash is the easiest way to record logs. And if 
-  that is not enough, you can extend its API and create your own
-  custom plugins for your own logging needs.
-version: 1.0.0
+  Do you need logs? Lumberdash is the answer! Simple and extensible 
+  API that allows you to create your plugins.
+version: 1.0.1
 author: Jorge Coca <jcocaramos@gmail.com>
 homepage: https://github.com/jorgecoca/lumberdash
 
