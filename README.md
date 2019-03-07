@@ -40,7 +40,12 @@ You can get this output:
 
 ![colorized](./art/colorized.png)
 
-## How to create a Lumberdash plugin
+## Existing plugins
+
+- [colorize_lumberdash](https://pub.dartlang.org/packages/colorize_lumberdash)
+- [sentry_lumberdash](https://pub.dartlang.org/packages/sentry_lumberdash)
+
+### How to create a Lumberdash plugin
 
 Add `lumberdash` to your dependencies, and extend the `LumberdashClient`. That easy!
 
