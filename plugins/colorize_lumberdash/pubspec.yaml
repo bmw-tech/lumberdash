@@ -10,7 +10,6 @@ environment:
   sdk: '>=2.0.0 <3.0.0'
 
 dependencies:
-  colorize: ^2.0.0
   lumberdash: ^1.0.0
   meta: ^1.0.0
 
