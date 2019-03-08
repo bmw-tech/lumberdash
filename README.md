@@ -1,5 +1,9 @@
 # lumberdash
 
+[![Build Status](https://travis-ci.com/jorgecoca/lumberdash.svg?branch=master)](https://travis-ci.com/jorgecoca/lumberdash)
+[![codecov](https://codecov.io/gh/jorgecoca/lumberdash/branch/master/graph/badge.svg)](https://codecov.io/gh/jorgecoca/lumberdash)
+[![Pub](https://img.shields.io/pub/v/lumberdash.svg)](https://pub.dartlang.org/packages/lumberdash)
+
 ![lumberdash icon](./art/lumberdash.png)
 
 Do you need logs? Lumberdash is the answer! With a simple but powerful API, Lumberdash is the easiest way to record logs. 
