@@ -5,6 +5,9 @@ class Colorize {
 
   Colorize([this.initial = '']);
 
+  @override
+  String toString() => initial;
+
   Colorize apply(Styles style, [String text]) {
     if (text == null) {
       text = initial;
