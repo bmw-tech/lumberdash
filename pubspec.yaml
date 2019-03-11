@@ -2,7 +2,7 @@ name: lumberdash
 description: >-
   Do you need logs? Lumberdash is the answer! Simple and extensible 
   API that allows you to create your plugins.
-version: 1.0.1
+version: 1.0.2
 author: Jorge Coca <jcocaramos@gmail.com>
 homepage: https://github.com/jorgecoca/lumberdash
 
