@@ -25,14 +25,14 @@ void main() {
 }
 ```
 
-However, you can get the best of **Lumberdash** by using plugins! For example, by using the `colorized_lumberdash`, you could print logs in stdout with colors:
+However, you can get the best of **Lumberdash** by using plugins! For example, by using the `colorize_lumberdash`, you could print logs in stdout with colors:
 
 ```dart
 import 'package:lumberdash/lumberdash.dart';
-import 'package:colorized_lumberdash/colorized_lumberdash_client.dart';
+import 'package:colorize_lumberdash/colorize_lumberdash_client.dart';
 
 void main() {
-  putLumberdashToWork(withClient: ColorizedLumberdashClient());
+  putLumberdashToWork(withClient: ColorizeLumberdash());
   logWarning('Hello Warning');
   logFatal('Hello Fatal!');
   logMessage('Hello Message!');
