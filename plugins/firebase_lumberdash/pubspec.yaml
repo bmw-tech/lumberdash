@@ -3,8 +3,8 @@ description: >-
   Lumberdash plugin that sends your logs to Firebase Analytics
 version: 1.0.0
 authors:
-- Jorge Coca <jcocaramos@gmail.com>
 - Felix Angelov <felangelov@gmail.com>
+- Jorge Coca <jcocaramos@gmail.com>
 homepage: https://github.com/jorgecoca/lumberdash
 
 environment:
