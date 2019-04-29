@@ -48,6 +48,7 @@ You can get this output:
 
 - [colorize_lumberdash](https://pub.dartlang.org/packages/colorize_lumberdash)
 - [sentry_lumberdash](https://pub.dartlang.org/packages/sentry_lumberdash)
+- [firebase_lumberdash](https://pub.dartlang.org/packages/firebase_lumberdash)
 
 ### How to create a Lumberdash plugin
 
