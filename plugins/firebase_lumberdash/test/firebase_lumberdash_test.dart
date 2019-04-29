@@ -28,7 +28,7 @@ main() {
       );
     });
 
-    test('logMessage', () {
+    test('logMessage w/extras', () {
       firebaseLumberdash.logMessage(message, extras);
       verify(
         firebaseAnalytics.logEvent(
@@ -38,13 +38,29 @@ main() {
             'release': releaseVersion,
             'level': 'message',
             'message': message,
-            'extras': extras,
+            'extras': extras.toString(),
           },
         ),
       ).called(1);
     });
 
-    test('logError', () {
+    test('logMessage w/out extras', () {
+      firebaseLumberdash.logMessage(message, null);
+      verify(
+        firebaseAnalytics.logEvent(
+          name: loggerName,
+          parameters: {
+            'environment': environment,
+            'release': releaseVersion,
+            'level': 'message',
+            'message': message,
+            'extras': '',
+          },
+        ),
+      ).called(1);
+    });
+
+    test('logError w/stacktrace', () {
       final String exception = 'test-exception';
       final String stacktrace = 'test-stacktrace';
       firebaseLumberdash.logError(exception, stacktrace);
@@ -62,7 +78,24 @@ main() {
       ).called(1);
     });
 
-    test('logFatal', () {
+    test('logError w/out stacktrace', () {
+      final String exception = 'test-exception';
+      firebaseLumberdash.logError(exception, null);
+      verify(
+        firebaseAnalytics.logEvent(
+          name: loggerName,
+          parameters: {
+            'environment': environment,
+            'release': releaseVersion,
+            'level': 'error',
+            'exception': exception,
+            'stracktrace': '',
+          },
+        ),
+      ).called(1);
+    });
+
+    test('logFatal w/extras', () {
       firebaseLumberdash.logFatal(message, extras);
       verify(
         firebaseAnalytics.logEvent(
@@ -72,13 +105,29 @@ main() {
             'release': releaseVersion,
             'level': 'fatal',
             'message': message,
-            'extras': extras,
+            'extras': extras.toString(),
           },
         ),
       ).called(1);
     });
 
-    test('logWarning', () {
+    test('logFatal w/out extras', () {
+      firebaseLumberdash.logFatal(message, null);
+      verify(
+        firebaseAnalytics.logEvent(
+          name: loggerName,
+          parameters: {
+            'environment': environment,
+            'release': releaseVersion,
+            'level': 'fatal',
+            'message': message,
+            'extras': '',
+          },
+        ),
+      ).called(1);
+    });
+
+    test('logWarning w/extras', () {
       firebaseLumberdash.logWarning(message, extras);
       verify(
         firebaseAnalytics.logEvent(
@@ -88,7 +137,23 @@ main() {
             'release': releaseVersion,
             'level': 'warning',
             'message': message,
-            'extras': extras,
+            'extras': extras.toString(),
+          },
+        ),
+      ).called(1);
+    });
+
+    test('logWarning w/out extras', () {
+      firebaseLumberdash.logWarning(message, null);
+      verify(
+        firebaseAnalytics.logEvent(
+          name: loggerName,
+          parameters: {
+            'environment': environment,
+            'release': releaseVersion,
+            'level': 'warning',
+            'message': message,
+            'extras': '',
           },
         ),
       ).called(1);
