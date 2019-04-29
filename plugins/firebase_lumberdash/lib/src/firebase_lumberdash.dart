@@ -32,7 +32,8 @@ class FirebaseLumberdash extends LumberdashClient {
         'release': releaseVersion,
         'level': 'message',
         'message': message,
-      }..addAll(extras),
+        'extras': extras,
+      },
     );
   }
 
@@ -46,7 +47,9 @@ class FirebaseLumberdash extends LumberdashClient {
         'environment': environment,
         'release': releaseVersion,
         'level': 'warning',
-      }..addAll(extras),
+        'message': message,
+        'extras': extras,
+      },
     );
   }
 
@@ -60,7 +63,9 @@ class FirebaseLumberdash extends LumberdashClient {
         'environment': environment,
         'release': releaseVersion,
         'level': 'fatal',
-      }..addAll(extras),
+        'message': message,
+        'extras': extras,
+      },
     );
   }
 

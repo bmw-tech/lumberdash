@@ -33,15 +33,13 @@ main() {
       verify(
         firebaseAnalytics.logEvent(
           name: loggerName,
-          parameters: extras
-            ..addAll(
-              {
-                'environment': environment,
-                'release': releaseVersion,
-                'level': 'message',
-                'message': message,
-              },
-            ),
+          parameters: {
+            'environment': environment,
+            'release': releaseVersion,
+            'level': 'message',
+            'message': message,
+            'extras': extras,
+          },
         ),
       ).called(1);
     });
@@ -69,14 +67,13 @@ main() {
       verify(
         firebaseAnalytics.logEvent(
           name: loggerName,
-          parameters: extras
-            ..addAll(
-              {
-                'environment': environment,
-                'release': releaseVersion,
-                'level': 'fatal',
-              },
-            ),
+          parameters: {
+            'environment': environment,
+            'release': releaseVersion,
+            'level': 'fatal',
+            'message': message,
+            'extras': extras,
+          },
         ),
       ).called(1);
     });
@@ -86,14 +83,13 @@ main() {
       verify(
         firebaseAnalytics.logEvent(
           name: loggerName,
-          parameters: extras
-            ..addAll(
-              {
-                'environment': environment,
-                'release': releaseVersion,
-                'level': 'warning',
-              },
-            ),
+          parameters: {
+            'environment': environment,
+            'release': releaseVersion,
+            'level': 'warning',
+            'message': message,
+            'extras': extras,
+          },
         ),
       ).called(1);
     });
