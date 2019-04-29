@@ -1,0 +1,16 @@
+name: example
+description: Example project for Lumberjack
+version: 1.0.0
+
+environment:
+  sdk: ">=2.0.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  lumberdash: ^1.0.0
+  firebase_lumberdash:
+    path: ../
+
+dev_dependencies:
+
