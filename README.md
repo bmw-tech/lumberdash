@@ -56,6 +56,16 @@ Add `lumberdash` to your dependencies, and extend the `LumberdashClient`. That e
 
 You can see the `SimpleClient` in this package as inspiration.
 
+## Maintainers
+
+Project Lead(s):
+
+- Felix Angelov (@felangel)
+
+Main Maintainer(s):
+
+- Jorge Coca (@jorgecoca)
+
 ## License
 
 ```
