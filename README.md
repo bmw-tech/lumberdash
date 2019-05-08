@@ -1,7 +1,7 @@
 # lumberdash
 
 [![Build Status](https://travis-ci.com/bmw-tech/lumberdash.svg?branch=master)](https://travis-ci.com/bmw-tech/lumberdash)
-[![codecov](https://codecov.io/gh/jorgecoca/lumberdash/branch/master/graph/badge.svg)](https://codecov.io/gh/jorgecoca/lumberdash)
+[![codecov](https://codecov.io/gh/bmw-tech/lumberdash/branch/master/graph/badge.svg)](https://codecov.io/gh/bmw-tech/lumberdash)
 [![Pub](https://img.shields.io/pub/v/lumberdash.svg)](https://pub.dartlang.org/packages/lumberdash)
 
 ![lumberdash icon](./art/lumberdash.png)
