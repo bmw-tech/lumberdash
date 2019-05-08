@@ -1,7 +1,7 @@
 # lumberdash
 
-[![Build Status](https://travis-ci.com/jorgecoca/lumberdash.svg?branch=master)](https://travis-ci.com/jorgecoca/lumberdash)
-[![codecov](https://codecov.io/gh/jorgecoca/lumberdash/branch/master/graph/badge.svg)](https://codecov.io/gh/jorgecoca/lumberdash)
+[![Build Status](https://travis-ci.com/bmw-tech/lumberdash.svg?branch=master)](https://travis-ci.com/bmw-tech/lumberdash)
+[![codecov](https://codecov.io/gh/bmw-tech/lumberdash/branch/master/graph/badge.svg)](https://codecov.io/gh/bmw-tech/lumberdash)
 [![Pub](https://img.shields.io/pub/v/lumberdash.svg)](https://pub.dartlang.org/packages/lumberdash)
 
 ![lumberdash icon](./art/lumberdash.png)
@@ -56,12 +56,22 @@ Add `lumberdash` to your dependencies, and extend the `LumberdashClient`. That e
 
 You can see the `SimpleClient` in this package as inspiration.
 
+## Maintainers
+
+Project Lead(s):
+
+- Felix Angelov (@felangel)
+
+Main Maintainer(s):
+
+- Jorge Coca (@jorgecoca)
+
 ## License
 
 ```
 MIT License
 
-Copyright (c) 2019 Jorge Coca
+Copyright (c) 2019 BMW Technology Corporation
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
