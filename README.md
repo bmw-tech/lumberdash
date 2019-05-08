@@ -71,7 +71,7 @@ Main Maintainer(s):
 ```
 MIT License
 
-Copyright (c) 2019 Jorge Coca
+Copyright (c) 2019 BMW Technology Corporation
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
