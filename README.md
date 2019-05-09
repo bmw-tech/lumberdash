@@ -1,6 +1,6 @@
 # lumberdash
 
-[![Build Status](https://travis-ci.com/bmw-tech/lumberdash.svg?branch=master)](https://travis-ci.com/bmw-tech/lumberdash)
+[![CircleCI](https://circleci.com/gh/bmw-tech/lumberdash/tree/master.svg?style=svg)](https://circleci.com/gh/bmw-tech/lumberdash/tree/master)
 [![codecov](https://codecov.io/gh/bmw-tech/lumberdash/branch/master/graph/badge.svg)](https://codecov.io/gh/bmw-tech/lumberdash)
 [![Pub](https://img.shields.io/pub/v/lumberdash.svg)](https://pub.dartlang.org/packages/lumberdash)
 

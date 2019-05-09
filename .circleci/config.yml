@@ -1,0 +1,12 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: google/dart
+    steps:
+      - checkout
+      - run: dart --version
+      - run: pub get
+      - run: pub run test_coverage
+      - run: bash <(curl -s https://codecov.io/bash)
