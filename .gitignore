@@ -4,6 +4,8 @@
 .idea
 .pub/
 .settings/
+coverage/*
+test/.test_coverage.dart
 *.iml
 **/build
 **/packages
