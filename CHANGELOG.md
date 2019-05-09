@@ -1,3 +1,9 @@
+# v1.0.3
+
+- Transfer ownership to `bmw-tech`
+- Added website with documentation
+- Move builds to `circle-ci`
+
 # v1.0.2
 
 - Fix typos in documentation

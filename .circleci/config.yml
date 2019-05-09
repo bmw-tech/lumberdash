@@ -1,4 +1,7 @@
-version: 2
+version: 2.1
+
+orbs:
+  codecov: codecov/codecov@1.0.4
 
 jobs:
   build:
@@ -9,4 +12,5 @@ jobs:
       - run: dart --version
       - run: pub get
       - run: pub run test_coverage
-      - run: bash <(curl -s https://codecov.io/bash)
+      - codecov/upload:
+          file: 'coverage/lcov.info'
