@@ -13,4 +13,5 @@ jobs:
       - run: pub get
       - run: pub run test_coverage
       - codecov/upload:
+          conf: '.circleci/codecov.yaml'
           file: 'coverage/lcov.info'
