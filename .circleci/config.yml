@@ -1,9 +1,11 @@
-version: 2.1
+version: 2
 
-orbs:
-    hello: circleci/hello-build@0.0.7 # uses the circleci/buildpack-deps Docker image
-
-workflows:
-    "Hello Workflow":
-        jobs:
-          - hello/hello-build
+jobs:
+  build:
+    docker:
+      - image: google/dart
+    steps:
+      - checkout
+      - run: dart --version
+      - run: pub run test_coverage
+      - run: bash <(curl -s https://codecov.io/bash)
