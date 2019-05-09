@@ -7,5 +7,6 @@ jobs:
     steps:
       - checkout
       - run: dart --version
+      - run: pub get
       - run: pub run test_coverage
       - run: bash <(curl -s https://codecov.io/bash)
