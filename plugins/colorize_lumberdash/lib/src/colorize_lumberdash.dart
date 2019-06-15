@@ -1,4 +1,4 @@
-import 'colors/colorize.dart';
+import 'package:io/ansi.dart';
 import 'package:lumberdash/lumberdash.dart';
 
 /// [LumberdashClient] that colors your logs in the stdout depending
@@ -13,16 +13,15 @@ class ColorizeLumberdash extends LumberdashClient {
   /// Prints the given message in yellow
   @override
   void logWarning(String message, [Map<String, dynamic> extras]) {
-    final warning = Colorize('Warning { message: $message, extras: $extras }');
-    warning.yellow();
+    final warning =
+        yellow.wrap('Warning { message: $message, extras: $extras }');
     print(warning);
   }
 
   /// Prints the given message in red
   @override
   void logFatal(String message, [Map<String, dynamic> extras]) {
-    final fatal = Colorize('Fatal { message: $message, extras: $extras }');
-    fatal.red();
+    final fatal = red.wrap('Fatal { message: $message, extras: $extras }');
     print(fatal);
   }
 
@@ -31,9 +30,8 @@ class ColorizeLumberdash extends LumberdashClient {
   @override
   void logError(dynamic exception, [dynamic stacktrace]) {
     final error =
-        Colorize('Error { exception: $exception, stacktrace: $stacktrace }');
-    error.bgRed();
-    error.white();
-    print(error);
+        white.wrap('Error { exception: $exception, stacktrace: $stacktrace }');
+    final errorBg = backgroundRed.wrap(error);
+    print(errorBg);
   }
 }

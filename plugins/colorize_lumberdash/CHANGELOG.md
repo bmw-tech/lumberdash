@@ -1,3 +1,7 @@
+# v1.1.0
+
+- Replace coloring mechanism with 'io:ansi.dart'
+
 # v1.0.2
 
 - Fix issue where colorize was printing the instance and not the message
