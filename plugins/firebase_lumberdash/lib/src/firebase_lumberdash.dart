@@ -83,7 +83,7 @@ class FirebaseLumberdash extends LumberdashClient {
         'release': releaseVersion,
         'level': 'error',
         'exception': exception?.toString() ?? '',
-        'stracktrace': stacktrace?.toString() ?? '',
+        'stacktrace': stacktrace?.toString() ?? '',
       },
     );
   }
