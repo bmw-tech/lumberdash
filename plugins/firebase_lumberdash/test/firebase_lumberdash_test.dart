@@ -28,6 +28,60 @@ main() {
       );
     });
 
+    group('initialization', () {
+      test('throws AssertionError when firebaseAnalyticsClient is null', () {
+        try {
+          FirebaseLumberdash(
+            firebaseAnalyticsClient: null,
+            loggerName: loggerName,
+            releaseVersion: releaseVersion,
+            environment: environment,
+          );
+        } catch (error) {
+          expect(error, isAssertionError);
+        }
+      });
+
+      test('throws AssertionError when loggerName is null', () {
+        try {
+          FirebaseLumberdash(
+            firebaseAnalyticsClient: firebaseAnalytics,
+            loggerName: null,
+            releaseVersion: releaseVersion,
+            environment: environment,
+          );
+        } catch (error) {
+          expect(error, isAssertionError);
+        }
+      });
+
+      test('throws AssertionError when releaseVersion is null', () {
+        try {
+          FirebaseLumberdash(
+            firebaseAnalyticsClient: firebaseAnalytics,
+            loggerName: loggerName,
+            releaseVersion: null,
+            environment: environment,
+          );
+        } catch (error) {
+          expect(error, isAssertionError);
+        }
+      });
+
+      test('throws AssertionError when environment is null', () {
+        try {
+          FirebaseLumberdash(
+            firebaseAnalyticsClient: firebaseAnalytics,
+            loggerName: loggerName,
+            releaseVersion: releaseVersion,
+            environment: null,
+          );
+        } catch (error) {
+          expect(error, isAssertionError);
+        }
+      });
+    });
+
     test('logMessage w/extras', () {
       firebaseLumberdash.logMessage(message, extras);
       verify(
@@ -72,7 +126,7 @@ main() {
             'release': releaseVersion,
             'level': 'error',
             'exception': exception,
-            'stracktrace': stacktrace,
+            'stacktrace': stacktrace,
           },
         ),
       ).called(1);
@@ -89,7 +143,7 @@ main() {
             'release': releaseVersion,
             'level': 'error',
             'exception': exception,
-            'stracktrace': '',
+            'stacktrace': '',
           },
         ),
       ).called(1);
