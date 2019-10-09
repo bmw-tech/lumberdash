@@ -4,7 +4,7 @@ abstract class LumberdashClient {
   /// `message` is the most important piece of the log, and `extras`
   /// are attached information that can be added to expand the meaning
   /// and context of your log.
-  void logMessage(String message, [Map<String, dynamic> extras]);
+  void logMessage(String message, [Map<String, dynamic> extras, String eventName]);
 
   /// Use `logWarning` to produce a log that requires a special level
   /// of attention, since it might indicate an unexpected situation,
@@ -12,7 +12,7 @@ abstract class LumberdashClient {
   /// `message` is the most important piece of the log, and `extras`
   /// are attached information that can be added to expand the meaning
   /// and context of your log.
-  void logWarning(String message, [Map<String, dynamic> extras]);
+  void logWarning(String message, [Map<String, dynamic> extras, String eventName]);
 
   /// Use `logFatal` to produce a log that represents an irreparable
   /// situation. This level of logs should require your total
@@ -28,5 +28,5 @@ abstract class LumberdashClient {
   /// special level of attention. However, in this case you can use
   /// this method to capture an `exception` and a `stacktrace`, in
   /// case your irreparable situation represents a crash in your code.
-  void logError(dynamic exception, [dynamic stacktrace]);
+  void logError(dynamic exception, [dynamic stacktrace, String eventName]);
 }
