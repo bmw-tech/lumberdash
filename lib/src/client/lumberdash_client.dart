@@ -21,7 +21,7 @@ abstract class LumberdashClient {
   /// `message` is the most important piece of the log, and `extras`
   /// are attached information that can be added to expand the meaning
   /// and context of your log.
-  void logFatal(String message, [Map<String, dynamic> extras]);
+  void logFatal(String message, [Map<String, dynamic> extras, String eventName]);
 
   /// Use `logError`, in a similar fashion to `logFatal`, should be
   /// used to capture a situation that cannot be fixed and requires a

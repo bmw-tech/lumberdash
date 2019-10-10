@@ -20,28 +20,28 @@ putLumberdashToWork({@required LumberdashClient withClient}) {
 
 /// It calls the `logMessage` method of the given [LumberdashClient]
 /// passed to `putLumberdashToWork`, and returns the given `message`.
-String logMessage(String message, [Map<String, dynamic> extras]) {
-  _lumberdashClient.logMessage(message, extras);
+String logMessage(String message, [Map<String, dynamic> extras, String eventName]) {
+  _lumberdashClient.logMessage(message, extras, eventName);
   return message;
 }
 
 /// It calls the `logWarning` method of the given [LumberdashClient]
 /// passed to `putLumberdashToWork`, and returns the given `message`.
-String logWarning(String message, [Map<String, dynamic> extras]) {
-  _lumberdashClient.logWarning(message, extras);
+String logWarning(String message, [Map<String, dynamic> extras, String eventName]) {
+  _lumberdashClient.logWarning(message, extras, eventName);
   return message;
 }
 
 /// It calls the `logFatal` method of the given [LumberdashClient]
 /// passed to `putLumberdashToWork`, and returns the given `message`.
-String logFatal(String message, [Map<String, dynamic> extras]) {
-  _lumberdashClient.logFatal(message, extras);
+String logFatal(String message, [Map<String, dynamic> extras, String eventName]) {
+  _lumberdashClient.logFatal(message, extras, eventName);
   return message;
 }
 
 /// It calls the `logError` method of the given [LumberdashClient]
 /// passed to `putLumberdashToWork`, and returns the given `exception`.
-dynamic logError(dynamic exception, [dynamic stacktrace]) {
-  _lumberdashClient.logError(exception, stacktrace);
+dynamic logError(dynamic exception, [dynamic stacktrace, String eventName]) {
+  _lumberdashClient.logError(exception, stacktrace, eventName);
   return exception;
 }
