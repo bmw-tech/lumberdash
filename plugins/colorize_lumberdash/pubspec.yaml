@@ -10,8 +10,7 @@ environment:
   sdk: '>=2.0.0 <3.0.0'
 
 dependencies:
-  lumberdash:
-    path: '/Users/ericktorres/desktop/lumberdash'
+  lumberdash: ^1.0.0
   meta: ^1.0.0
   io: ^0.3.0
 
