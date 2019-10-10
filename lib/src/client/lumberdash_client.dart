@@ -1,16 +1,18 @@
 /// [LumberdashClient] defines the API for producing logs.
 abstract class LumberdashClient {
   /// Use `logMessage` to produce an mere informative log.
-  /// `message` is the most important piece of the log, and `extras`
-  /// are attached information that can be added to expand the meaning
+  /// `message` is the most important piece of the log, `eventName` is
+  /// the name given to the event that triggered the log, and
+  /// `extras` are attached information that can be added to expand the meaning
   /// and context of your log.
   void logMessage(String message, [Map<String, dynamic> extras, String eventName]);
 
   /// Use `logWarning` to produce a log that requires a special level
   /// of attention, since it might indicate an unexpected situation,
   /// or something that should not happen
-  /// `message` is the most important piece of the log, and `extras`
-  /// are attached information that can be added to expand the meaning
+  /// `message` is the most important piece of the log, `eventName` is
+  /// the name given to the event that triggered the log, and
+  /// `extras` are attached information that can be added to expand the meaning
   /// and context of your log.
   void logWarning(String message, [Map<String, dynamic> extras, String eventName]);
 
@@ -18,8 +20,9 @@ abstract class LumberdashClient {
   /// situation. This level of logs should require your total
   /// attention. In an ideal world, you should never see this type
   /// of logs.
-  /// `message` is the most important piece of the log, and `extras`
-  /// are attached information that can be added to expand the meaning
+  /// `message` is the most important piece of the log, `eventName` is
+  /// the name given to the event that triggered the log, and
+  /// `extras` are attached information that can be added to expand the meaning
   /// and context of your log.
   void logFatal(String message, [Map<String, dynamic> extras, String eventName]);
 
@@ -28,5 +31,6 @@ abstract class LumberdashClient {
   /// special level of attention. However, in this case you can use
   /// this method to capture an `exception` and a `stacktrace`, in
   /// case your irreparable situation represents a crash in your code.
+  /// `eventName` is the name given to the event that triggered the exception.
   void logError(dynamic exception, [dynamic stacktrace, String eventName]);
 }
