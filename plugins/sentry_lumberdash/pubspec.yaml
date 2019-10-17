@@ -2,17 +2,17 @@ name: sentry_lumberdash
 description: >-
   Lumberdash plugin that sends your logs to Sentry with the proper
   severity level
-version: 1.0.1
+version: 2.0.0
 author: Jorge Coca <jcocaramos@gmail.com>
 homepage: https://github.com/jorgecoca/lumberdash
 
 environment:
-  sdk: '>=2.0.0 <3.0.0'
+  sdk: ">=2.4.0 <3.0.0"
 
 dependencies:
   lumberdash: ^1.0.0
   meta: ^1.0.0
-  sentry: ^2.0.0
+  sentry: ^2.3.1
 
 dev_dependencies:
   test: ^1.4.0
