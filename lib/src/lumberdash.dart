@@ -17,7 +17,6 @@ putLumberdashToWork({@required List<LumberdashClient> withClients}) {
 /// It calls the `logMessage` method of the each [LumberdashClient]
 /// passed to `putLumberdashToWork`, and returns the given `message`.
 String logMessage(String message, [Map<String, dynamic> extras]) {
-  // _lumberdashClient.logMessage(message, extras);
   _lumberdashClients.forEach((c) => c.logMessage(message, extras));
   return message;
 }
