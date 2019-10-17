@@ -13,7 +13,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  lumberdash: ^1.0.0
+  lumberdash:
+    path: ../../
   meta: ^1.0.0
   firebase_analytics: ^5.0.2
 
