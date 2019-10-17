@@ -2,8 +2,8 @@ name: lumberdash
 description: >-
   Do you need logs? Lumberdash is the answer! Simple and extensible 
   API that allows you to create your plugins.
-version: 1.0.3
-authors: 
+version: 2.0.0+1
+authors:
   - Jorge Coca <jcocaramos@gmail.com>
   - Felix Angelov <felangelov@gmail.com>
 repository: https://github.com/bmw-tech/lumberdash
@@ -11,7 +11,7 @@ issue_tracker: https://github.com/bmw-tech/lumberdash/issues
 homepage: https://bmw-tech.github.io/lumberdash/
 
 environment:
-  sdk: '>=2.0.0 <3.0.0'
+  sdk: ">=2.4.0 <3.0.0"
 
 dependencies:
   meta: ^1.0.0
