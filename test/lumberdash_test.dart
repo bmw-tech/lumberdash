@@ -89,8 +89,8 @@ void main() {
       final result = logError(exception);
 
       expect(result, exception);
-      verify(mockClient1.logError(Exception('Error')));
-      verify(mockClient2.logError(Exception('Error')));
+      verify(mockClient1.logError(any));
+      verify(mockClient2.logError(any));
     });
   });
 }
