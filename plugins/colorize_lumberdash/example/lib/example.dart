@@ -2,7 +2,7 @@ import 'package:colorize_lumberdash/colorize_lumberdash.dart';
 import 'package:lumberdash/lumberdash.dart';
 
 void main() {
-  putLumberdashToWork(withClient: ColorizeLumberdash());
+  putLumberdashToWork(withClients: [ColorizeLumberdash()]);
   logWarning('Hello Warning');
   logFatal('Hello Fatal!');
   logMessage('Hello Message!');

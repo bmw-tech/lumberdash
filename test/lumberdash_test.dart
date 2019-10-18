@@ -8,7 +8,7 @@ void main() {
   group('putLumberdashToWork', () {
     test('should break if no client is given', () {
       try {
-        putLumberdashToWork(withClient: null);
+        putLumberdashToWork(withClients: null);
         fail('This could should not work');
       } catch (e) {
         expect(e is AssertionError, isTrue);
@@ -22,7 +22,7 @@ void main() {
       when(mockClient.logFatal(any)).thenReturn(null);
       when(mockClient.logError(any)).thenReturn(null);
 
-      putLumberdashToWork(withClient: mockClient);
+      putLumberdashToWork(withClients: [mockClient]);
       logMessage('Message');
       logWarning('Warning');
       logFatal('Fatal');
@@ -33,56 +33,64 @@ void main() {
       verify(mockClient.logFatal('Fatal')).called(1);
       verify(mockClient.logError('Error')).called(1);
     });
-
-    test(
-        'lumberdashClient getter returns the instance pass to putLumberdashToWork',
-        () {
-      final mockClient = MockClient();
-      putLumberdashToWork(withClient: mockClient);
-      expect(lumberdashClient, mockClient);
-    });
   });
 
   group('log API', () {
     test('logMessage returns the given message', () {
-      final mockClient = MockClient();
-      when(mockClient.logMessage(any)).thenReturn(null);
+      final mockClient1 = MockClient();
+      final mockClient2 = MockClient();
+      when(mockClient1.logMessage(any)).thenReturn(null);
+      when(mockClient2.logMessage(any)).thenReturn(null);
 
-      putLumberdashToWork(withClient: mockClient);
+      putLumberdashToWork(withClients: [mockClient1, mockClient2]);
       final result = logMessage('Message');
 
       expect(result, 'Message');
+      verify(mockClient1.logMessage('Message'));
+      verify(mockClient2.logMessage('Message'));
     });
 
     test('logWarning returns the given message', () {
-      final mockClient = MockClient();
-      when(mockClient.logWarning(any)).thenReturn(null);
+      final mockClient1 = MockClient();
+      final mockClient2 = MockClient();
+      when(mockClient1.logWarning(any)).thenReturn(null);
+      when(mockClient2.logWarning(any)).thenReturn(null);
 
-      putLumberdashToWork(withClient: mockClient);
+      putLumberdashToWork(withClients: [mockClient1, mockClient2]);
       final result = logWarning('Warning');
 
       expect(result, 'Warning');
+      verify(mockClient1.logWarning('Warning'));
+      verify(mockClient2.logWarning('Warning'));
     });
 
     test('logFatal returns the given message', () {
-      final mockClient = MockClient();
-      when(mockClient.logFatal(any)).thenReturn(null);
+      final mockClient1 = MockClient();
+      final mockClient2 = MockClient();
+      when(mockClient1.logFatal(any)).thenReturn(null);
+      when(mockClient2.logFatal(any)).thenReturn(null);
 
-      putLumberdashToWork(withClient: mockClient);
+      putLumberdashToWork(withClients: [mockClient1, mockClient2]);
       final result = logFatal('Fatal');
 
       expect(result, 'Fatal');
+      verify(mockClient1.logFatal('Fatal'));
+      verify(mockClient2.logFatal('Fatal'));
     });
 
     test('logError returns the given exception', () {
-      final mockClient = MockClient();
-      when(mockClient.logError(any)).thenReturn(null);
+      final mockClient1 = MockClient();
+      final mockClient2 = MockClient();
+      when(mockClient1.logError(any)).thenReturn(null);
+      when(mockClient2.logError(any)).thenReturn(null);
 
-      putLumberdashToWork(withClient: mockClient);
+      putLumberdashToWork(withClients: [mockClient1, mockClient2]);
       final exception = Exception('Error');
       final result = logError(exception);
 
       expect(result, exception);
+      verify(mockClient1.logError(any));
+      verify(mockClient2.logError(any));
     });
   });
 }
