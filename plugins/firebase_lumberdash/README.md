@@ -15,12 +15,12 @@ import 'package:firebase_lumberdash/firebase_lumberdash.dart';
 
 void main() {
   putLumberdashToWork(
-    withClient: FirebaseLumberdash(
+    withClients: [FirebaseLumberdash(
       firebaseAnalyticsClient: FirebaseAnalytics(),
       loggerName: 'FirebaseLumberdash',
       environment: 'development',
       releaseVersion: '1.0.0',
-    ),
+    )],
   );
   logWarning('Hello Warning');
   logFatal('Hello Fatal!');

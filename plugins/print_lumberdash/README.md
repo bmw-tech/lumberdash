@@ -1,19 +1,21 @@
-# colorize_lumberdash
+# print_lumberdash
 
 Plugin for [lumberdash](https://github.com/jorgecoca/lumberdash)
 
-It prints your logs with different colors on the stdout depending on the severity level
+It prints to the terminal using `print`
 
 ## How to use
 
-Add `colorize_lumberdash` to your dependencies. Then pass an instance of `ColorizeLumberdash` to `lumberdash`:
+Add `print_lumberdash` to your dependencies.
 
 ```dart
-import 'package:colorize_lumberdash/colorize_lumberdash.dart';
 import 'package:lumberdash/lumberdash.dart';
+import 'package:sentry_lumberdash/sentry_lumberdash.dart';
 
 void main() {
-  putLumberdashToWork(withClients: [ColorizeLumberdash()]);
+  putLumberdashToWork(
+    withClients: [PrintLumberdash()],
+  );
   logWarning('Hello Warning');
   logFatal('Hello Fatal!');
   logMessage('Hello Message!');

@@ -1,3 +1,9 @@
+# v2.0.0
+
+- Integration with lumberdash v2
+- Better messaging format
+- Uses `ansicolor` for better system integration
+
 # v1.1.0
 
 - Replace coloring mechanism with 'io:ansi.dart'

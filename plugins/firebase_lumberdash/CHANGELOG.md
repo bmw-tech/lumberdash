@@ -1,3 +1,8 @@
+# v2.0.0 (October 21st, 2019)
+
+- Integration with `lumberdash v2`
+- Better messaging support
+
 # v1.0.3 (September 17th, 2019)
 
 - Fix typo ('stracktrace' -> 'stacktrace')
