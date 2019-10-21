@@ -6,7 +6,6 @@ void main() {
   putLumberdashToWork(withClients: [
     FirebaseLumberdash(
       firebaseAnalyticsClient: FirebaseAnalytics(),
-      loggerName: 'FirebaseLumberdash',
       environment: 'development',
       releaseVersion: '1.0.0',
     ),
