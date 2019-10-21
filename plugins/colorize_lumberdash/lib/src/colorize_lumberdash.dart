@@ -7,7 +7,7 @@ class ColorizeLumberdash extends LumberdashClient {
   /// Prints a regular message to stdout without any color treatment
   @override
   void logMessage(String message, [Map<String, dynamic> extras]) {
-    print('Message { message: $message, extras: $extras }'); // no color added
+    print(_format('MESSAGE', message, extras));
   }
 
   /// Prints the given message in a yellow background with a black
@@ -17,7 +17,7 @@ class ColorizeLumberdash extends LumberdashClient {
     final warning = AnsiPen()
       ..black()
       ..yellow(bg: true);
-    print(warning(('Warning { message: $message, extras: $extras }')));
+    print(warning(_format('WARNING', message, extras)));
   }
 
   /// Prints the given message in light red background with a white
@@ -27,7 +27,7 @@ class ColorizeLumberdash extends LumberdashClient {
     final fatal = AnsiPen()
       ..white()
       ..red(bg: true);
-    print(fatal('Fatal { message: $message, extras: $extras }'));
+    print(fatal(_format('FATAL', message, extras)));
   }
 
   /// Printst the given message in a red background with a white
@@ -37,6 +37,14 @@ class ColorizeLumberdash extends LumberdashClient {
     final error = AnsiPen()
       ..white(bold: true)
       ..xterm(88, bg: true);
-    print(error('Error { exception: $exception, stacktrace: $stacktrace }'));
+    print(error('[ERROR] { exception: $exception, stacktrace: $stacktrace }'));
+  }
+
+  String _format(String tag, String message, Map<String, dynamic> extras) {
+    if (extras != null) {
+      return '[$tag] $message, extras: $extras';
+    } else {
+      return '[$tag] $message';
+    }
   }
 }
