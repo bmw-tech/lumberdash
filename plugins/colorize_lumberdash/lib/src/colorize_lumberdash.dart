@@ -1,4 +1,4 @@
-import 'package:io/ansi.dart';
+import 'package:ansicolor/ansicolor.dart';
 import 'package:lumberdash/lumberdash.dart';
 
 /// [LumberdashClient] that colors your logs in the stdout depending
@@ -10,28 +10,33 @@ class ColorizeLumberdash extends LumberdashClient {
     print('Message { message: $message, extras: $extras }'); // no color added
   }
 
-  /// Prints the given message in yellow
+  /// Prints the given message in a yellow background with a black
+  /// font
   @override
   void logWarning(String message, [Map<String, dynamic> extras]) {
-    final warning =
-        yellow.wrap('Warning { message: $message, extras: $extras }');
-    print(warning);
+    final warning = AnsiPen()
+      ..black()
+      ..yellow(bg: true);
+    print(warning(('Warning { message: $message, extras: $extras }')));
   }
 
-  /// Prints the given message in red
+  /// Prints the given message in light red background with a white
+  /// font
   @override
   void logFatal(String message, [Map<String, dynamic> extras]) {
-    final fatal = red.wrap('Fatal { message: $message, extras: $extras }');
-    print(fatal);
+    final fatal = AnsiPen()
+      ..white()
+      ..red(bg: true);
+    print(fatal('Fatal { message: $message, extras: $extras }'));
   }
 
-  /// Printst the given message in a red background with white
-  /// characters
+  /// Printst the given message in a red background with a white
+  /// font
   @override
   void logError(dynamic exception, [dynamic stacktrace]) {
-    final error =
-        white.wrap('Error { exception: $exception, stacktrace: $stacktrace }');
-    final errorBg = backgroundRed.wrap(error);
-    print(errorBg);
+    final error = AnsiPen()
+      ..white(bold: true)
+      ..xterm(88, bg: true);
+    print(error('Error { exception: $exception, stacktrace: $stacktrace }'));
   }
 }

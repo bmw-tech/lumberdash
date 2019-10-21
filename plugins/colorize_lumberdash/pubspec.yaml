@@ -13,7 +13,7 @@ dependencies:
   lumberdash:
     path: ../../
   meta: ^1.0.0
-  io: ^0.3.0
+  ansicolor: ^1.0.2
 
 dev_dependencies:
   test: ^1.4.0
