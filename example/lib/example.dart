@@ -1,7 +1,7 @@
 import 'package:lumberdash/lumberdash.dart';
 
 void main() {
-  putLumberdashToWork(withClient: SimpleClient());
+  putLumberdashToWork(withClients: []);
   logWarning('Hello Warning');
   logFatal('Hello Fatal!');
   logMessage('Hello Message!');

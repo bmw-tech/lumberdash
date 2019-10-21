@@ -8,7 +8,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  lumberdash: ^1.0.0
+  lumberdash:
+    path: ../../../
   firebase_lumberdash:
     path: ../
 

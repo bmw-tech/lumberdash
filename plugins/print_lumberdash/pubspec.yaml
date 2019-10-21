@@ -1,7 +1,6 @@
-name: colorize_lumberdash
+name: print_lumberdash
 description: >-
-  Lumberdash plugin that colors your logs on the stdout depending on
-  their severity level
+  Lumberdash plugin that uses print() to output your logs
 version: 2.0.0
 author: Jorge Coca <jcocaramos@gmail.com>
 homepage: https://github.com/jorgecoca/lumberdash
@@ -13,9 +12,5 @@ dependencies:
   lumberdash:
     path: ../../
   meta: ^1.0.0
-  ansicolor: ^1.0.2
 
 dev_dependencies:
-  test: ^1.4.0
-  test_coverage: ^0.2.0
-  mockito: ^4.0.0

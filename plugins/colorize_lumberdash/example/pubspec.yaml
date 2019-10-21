@@ -3,12 +3,12 @@ description: Example project for Lumberjack
 version: 1.0.0
 
 environment:
-  sdk: ">=2.0.0 <3.0.0"
+  sdk: ">=2.4.0 <3.0.0"
 
 dependencies:
-  lumberdash: ^1.0.0
+  lumberdash:
+    path: ../../../
   colorize_lumberdash:
     path: ../
 
 dev_dependencies:
-
