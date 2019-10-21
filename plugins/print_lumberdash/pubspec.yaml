@@ -1,0 +1,16 @@
+name: print_lumberdash
+description: >-
+  Lumberdash plugin that uses print() to output your logs
+version: 2.0.0
+author: Jorge Coca <jcocaramos@gmail.com>
+homepage: https://github.com/jorgecoca/lumberdash
+
+environment:
+  sdk: ">=2.4.0 <3.0.0"
+
+dependencies:
+  lumberdash:
+    path: ../../
+  meta: ^1.0.0
+
+dev_dependencies:
