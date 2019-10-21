@@ -6,8 +6,7 @@ environment:
   sdk: ">=2.4.0 <3.0.0"
 
 dependencies:
-  lumberdash:
-    path: ../../../
+  lumberdash: ^2.0.0
   colorize_lumberdash:
     path: ../
 
