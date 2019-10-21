@@ -1,3 +1,9 @@
+# v2.0.0
+
+- Added support for multiple clients
+- Added support for filtering clients at the log level
+- Improved messaging on different plugins
+
 # v1.0.3
 
 - Transfer ownership to `bmw-tech`
