@@ -5,20 +5,17 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 /// [LumberdashClient] that sends your logs to Firebase Analytics
 class FirebaseLumberdash extends LumberdashClient {
   final FirebaseAnalytics firebaseAnalyticsClient;
-  final String loggerName;
   final String releaseVersion;
   final String environment;
 
-  /// Instantiates a [LumberdashClient] with a [FirebaseAnalytics] client,
-  /// [loggerName], [releaseVersion] and [environment], all parameters
+  /// Instantiates a [LumberdashClient] with a [FirebaseAnalytics]
+  /// client, [releaseVersion] and [environment], all parameters
   /// used by the [FirebaseAnalytics] client when sending a log.
   FirebaseLumberdash({
     @required this.firebaseAnalyticsClient,
-    @required this.loggerName,
     @required this.releaseVersion,
     @required this.environment,
   })  : assert(firebaseAnalyticsClient != null),
-        assert(loggerName != null),
         assert(releaseVersion != null),
         assert(environment != null);
 
@@ -26,14 +23,8 @@ class FirebaseLumberdash extends LumberdashClient {
   @override
   void logMessage(String message, [Map<String, dynamic> extras]) {
     firebaseAnalyticsClient.logEvent(
-      name: loggerName,
-      parameters: {
-        'environment': environment,
-        'release': releaseVersion,
-        'level': 'message',
-        'message': message,
-        'extras': extras?.toString() ?? '',
-      },
+      name: message,
+      parameters: _buildParameters('MESSAGE', extras),
     );
   }
 
@@ -42,14 +33,8 @@ class FirebaseLumberdash extends LumberdashClient {
   @override
   void logWarning(String message, [Map<String, dynamic> extras]) {
     firebaseAnalyticsClient.logEvent(
-      name: loggerName,
-      parameters: {
-        'environment': environment,
-        'release': releaseVersion,
-        'level': 'warning',
-        'message': message,
-        'extras': extras?.toString() ?? '',
-      },
+      name: message,
+      parameters: _buildParameters('WARNING', extras),
     );
   }
 
@@ -58,14 +43,8 @@ class FirebaseLumberdash extends LumberdashClient {
   @override
   void logFatal(String message, [Map<String, dynamic> extras]) {
     firebaseAnalyticsClient.logEvent(
-      name: loggerName,
-      parameters: {
-        'environment': environment,
-        'release': releaseVersion,
-        'level': 'fatal',
-        'message': message,
-        'extras': extras?.toString() ?? '',
-      },
+      name: message,
+      parameters: _buildParameters('FATAL', extras),
     );
   }
 
@@ -73,18 +52,24 @@ class FirebaseLumberdash extends LumberdashClient {
   /// [error]
   @override
   void logError(dynamic exception, [dynamic stacktrace]) {
-    print(
-      'logEvent name: $loggerName, environment: $environment, release: $releaseVersion, exception: $exception, stacktrace $stacktrace',
-    );
     firebaseAnalyticsClient.logEvent(
-      name: loggerName,
-      parameters: {
-        'environment': environment,
-        'release': releaseVersion,
-        'level': 'error',
-        'exception': exception?.toString() ?? '',
-        'stacktrace': stacktrace?.toString() ?? '',
-      },
+      name: exception?.toString() ?? 'firebase_lumberdash_error',
+      parameters: _buildParameters('ERROR', {'stacktrace': stacktrace}),
     );
+  }
+
+  Map<String, String> _buildParameters(
+    String logLevel,
+    Map<String, String> extras,
+  ) {
+    Map<String, String> parameters = {
+      'environment': environment,
+      'release': releaseVersion,
+      'level': logLevel,
+    };
+    if (extras != null) {
+      parameters.addAll(extras);
+    }
+    return parameters;
   }
 }
