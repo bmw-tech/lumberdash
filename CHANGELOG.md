@@ -1,3 +1,7 @@
+# v2.1.0
+
+- Make `extras` strongly typed: `Map<String, String>`
+
 # v2.0.0
 
 - Added support for multiple clients
