@@ -6,14 +6,14 @@ import 'package:lumberdash/lumberdash.dart';
 class ColorizeLumberdash extends LumberdashClient {
   /// Prints a regular message to stdout without any color treatment
   @override
-  void logMessage(String message, [Map<String, dynamic> extras]) {
+  void logMessage(String message, [Map<String, String> extras]) {
     print(_format('MESSAGE', message, extras));
   }
 
   /// Prints the given message in a yellow background with a black
   /// font
   @override
-  void logWarning(String message, [Map<String, dynamic> extras]) {
+  void logWarning(String message, [Map<String, String> extras]) {
     final warning = AnsiPen()
       ..black()
       ..yellow(bg: true);
@@ -23,7 +23,7 @@ class ColorizeLumberdash extends LumberdashClient {
   /// Prints the given message in light red background with a white
   /// font
   @override
-  void logFatal(String message, [Map<String, dynamic> extras]) {
+  void logFatal(String message, [Map<String, String> extras]) {
     final fatal = AnsiPen()
       ..white()
       ..red(bg: true);

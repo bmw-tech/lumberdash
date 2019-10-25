@@ -1,3 +1,7 @@
+# v2.1.0 (October 25th, 2019)
+
+- Make `extras` strongly typed
+
 # v2.0.0 (October 21st, 2019)
 
 - Integration with `lumberdash v2`
