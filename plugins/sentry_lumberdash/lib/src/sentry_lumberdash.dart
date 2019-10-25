@@ -43,7 +43,7 @@ class SentryLumberdash extends LumberdashClient {
   /// Sends a log to Sentry using the given [SentryClient] with level
   /// [SeverityLevel.debug]
   @override
-  void logMessage(String message, [Map<String, dynamic> extras]) {
+  void logMessage(String message, [Map<String, String> extras]) {
     sentryClient.capture(
         event: Event(
       loggerName: loggerName,
@@ -58,7 +58,7 @@ class SentryLumberdash extends LumberdashClient {
   /// Sends a log to Sentry using the given [SentryClient] with level
   /// [SeverityLevel.warning]
   @override
-  void logWarning(String message, [Map<String, dynamic> extras]) {
+  void logWarning(String message, [Map<String, String> extras]) {
     sentryClient.capture(
         event: Event(
       loggerName: loggerName,
@@ -73,7 +73,7 @@ class SentryLumberdash extends LumberdashClient {
   /// Sends a log to Sentry using the given [SentryClient] with level
   /// [SeverityLevel.fatal]
   @override
-  void logFatal(String message, [Map<String, dynamic> extras]) {
+  void logFatal(String message, [Map<String, String> extras]) {
     sentryClient.capture(
         event: Event(
       loggerName: loggerName,

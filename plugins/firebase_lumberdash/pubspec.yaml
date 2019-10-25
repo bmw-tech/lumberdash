@@ -1,7 +1,7 @@
 name: firebase_lumberdash
 description: >-
   Lumberdash plugin that sends your logs to Firebase Analytics
-version: 2.0.0
+version: 2.1.0
 authors:
   - Felix Angelov <felangelov@gmail.com>
   - Jorge Coca <jcocaramos@gmail.com>
@@ -13,7 +13,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  lumberdash: ^2.0.0
+  lumberdash: ^2.1.0
   meta: ^1.0.0
   firebase_analytics: ^5.0.2
 

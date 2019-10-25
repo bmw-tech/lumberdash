@@ -21,7 +21,7 @@ class FirebaseLumberdash extends LumberdashClient {
 
   /// Sends a log to Firebase Analytics using the given [FirebaseAnalytics] client
   @override
-  void logMessage(String message, [Map<String, dynamic> extras]) {
+  void logMessage(String message, [Map<String, String> extras]) {
     firebaseAnalyticsClient.logEvent(
       name: message,
       parameters: _buildParameters('MESSAGE', extras),
@@ -31,7 +31,7 @@ class FirebaseLumberdash extends LumberdashClient {
   /// Sends a log to Firebase Analytics using the given [FirebaseAnalytics] with level
   /// [warning]
   @override
-  void logWarning(String message, [Map<String, dynamic> extras]) {
+  void logWarning(String message, [Map<String, String> extras]) {
     firebaseAnalyticsClient.logEvent(
       name: message,
       parameters: _buildParameters('WARNING', extras),
@@ -41,7 +41,7 @@ class FirebaseLumberdash extends LumberdashClient {
   /// Sends a log to Firebase Analytics using the given [FirebaseAnalytics] with level
   /// [fatal]
   @override
-  void logFatal(String message, [Map<String, dynamic> extras]) {
+  void logFatal(String message, [Map<String, String> extras]) {
     firebaseAnalyticsClient.logEvent(
       name: message,
       parameters: _buildParameters('FATAL', extras),
