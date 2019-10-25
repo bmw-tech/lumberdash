@@ -21,7 +21,7 @@ putLumberdashToWork({@required List<LumberdashClient> withClients}) {
 /// `exceptFor` to filter out that client.
 String logMessage(
   String message, {
-  Map<String, dynamic> extras,
+  Map<String, String> extras,
   List<Type> exceptFor: const [],
 }) {
   _filterOutClientsAndLog(exceptFor, (c) => c.logMessage(message, extras));
@@ -35,7 +35,7 @@ String logMessage(
 /// `exceptFor` to filter out that client.
 String logWarning(
   String message, {
-  Map<String, dynamic> extras,
+  Map<String, String> extras,
   List<Type> exceptFor: const [],
 }) {
   _filterOutClientsAndLog(exceptFor, (c) => c.logWarning(message, extras));
@@ -49,7 +49,7 @@ String logWarning(
 /// `exceptFor` to filter out that client.
 String logFatal(
   String message, {
-  Map<String, dynamic> extras,
+  Map<String, String> extras,
   List<Type> exceptFor: const [],
 }) {
   _filterOutClientsAndLog(exceptFor, (c) => c.logFatal(message, extras));
