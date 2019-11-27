@@ -6,7 +6,7 @@
 
 ![lumberdash icon](./art/lumberdash.png)
 
-Do you need logs? Lumberdash is the answer! With a simple but powerful API, Lumberdash is the easiest way to record logs.
+Do you need logs? Lumberdash is the answer! With a simple but powerful logging API, Lumberdash is the easiest way to record logs.
 And if that is not enough, you can extend its API and create your own custom plugins for your own logging needs.
 
 ## How it works
