@@ -68,11 +68,12 @@ You can see the `SimpleClient` in this package as inspiration.
 
 Project Lead(s):
 
-- Felix Angelov (@felangel)
+- Tim Chabot(@tchabot22)
 
 Main Maintainer(s):
 
 - Jorge Coca (@jorgecoca)
+- Felix Angelov (@felangel)
 
 ## License
 
