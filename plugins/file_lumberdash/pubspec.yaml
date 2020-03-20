@@ -1,0 +1,12 @@
+name: file_lumberdash
+description: Lumberdash package that outputs your logs to the file system.
+version: 0.0.1
+homepage: https://bmw-tech.github.io/lumberdash/
+
+environment:
+  sdk: ">=2.4.0 <3.0.0"
+
+dependencies:
+  lumberdash: ^2.1.0
+  meta: ^1.0.0
+  synchronized: ^2.2.0

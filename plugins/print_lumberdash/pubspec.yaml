@@ -11,5 +11,3 @@ environment:
 dependencies:
   lumberdash: ^2.1.0
   meta: ^1.0.0
-
-dev_dependencies:
