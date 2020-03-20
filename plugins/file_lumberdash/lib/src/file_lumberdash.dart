@@ -4,10 +4,11 @@ import 'package:lumberdash/lumberdash.dart';
 import 'package:synchronized/synchronized.dart';
 import 'package:meta/meta.dart';
 
-/// [LumberdashClient] that writes your logs to the given directory path
+/// [LumberdashClient] that writes your logs to the given file path
 /// in the file system
 class FileLumberdash extends LumberdashClient {
   final String _filePath;
+  File _logFile;
   static final _lock = Lock();
 
   FileLumberdash({
@@ -57,10 +58,10 @@ class FileLumberdash extends LumberdashClient {
 
   Future<void> _log(String data) async {
     try {
-      final file = File(_filePath);
+      _logFile = File(_filePath);
       _lock.synchronized(() async {
         final date = DateTime.now();
-        await file.writeAsString(
+        await _logFile.writeAsString(
           '${date.toIso8601String()}${date.timeZoneOffset} - $data\n',
           mode: FileMode.writeOnlyAppend,
           flush: true,

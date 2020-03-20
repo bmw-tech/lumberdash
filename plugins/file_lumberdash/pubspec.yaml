@@ -1,5 +1,5 @@
 name: file_lumberdash
-description: Lumberdash plugin that outputs your logs to the file system.
+description: Lumberdash package that outputs your logs to the file system.
 version: 0.0.1
 homepage: https://bmw-tech.github.io/lumberdash/
 
@@ -10,5 +10,3 @@ dependencies:
   lumberdash: ^2.1.0
   meta: ^1.0.0
   synchronized: ^2.2.0
-
-dev_dependencies:

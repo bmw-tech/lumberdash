@@ -12,5 +12,3 @@ dependencies:
   lumberdash: ^2.1.0
   file_lumberdash:
     path: ../
-
-dev_dependencies:

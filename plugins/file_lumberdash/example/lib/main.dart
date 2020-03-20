@@ -10,11 +10,12 @@ Future<void> main() async {
   Directory appDocDir = await getApplicationDocumentsDirectory();
   String appDocPath = appDocDir.path;
   final currentDate = DateTime.now();
-  final fileName = '${currentDate.year}-${currentDate.month}-${currentDate.day}-logs';
+  final fileName =
+      '${currentDate.year}-${currentDate.month}-${currentDate.day}-logs';
   putLumberdashToWork(withClients: [
     FileLumberdash(
-        filePath:
-            '$appDocPath/$fileName.txt'),
+      filePath: '$appDocPath/$fileName.txt',
+    ),
   ]);
   logWarning('Hello Warning');
   logWarning('Hello Warning');
