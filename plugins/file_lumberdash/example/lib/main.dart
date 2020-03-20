@@ -18,7 +18,6 @@ Future<void> main() async {
     ),
   ]);
   logWarning('Hello Warning');
-  logWarning('Hello Warning');
   logFatal('Hello Fatal!');
   logMessage('Hello Message!');
   logError(Exception('Hello Error'));

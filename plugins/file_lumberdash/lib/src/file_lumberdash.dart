@@ -7,14 +7,13 @@ import 'package:meta/meta.dart';
 /// [LumberdashClient] that writes your logs to the given file path
 /// in the file system
 class FileLumberdash extends LumberdashClient {
-  final String _filePath;
   File _logFile;
   static final _lock = Lock();
 
   FileLumberdash({
     @required String filePath,
   })  : assert(filePath != null),
-        _filePath = filePath;
+        _logFile = File(filePath);
 
   /// Records a regular message
   @override
@@ -58,7 +57,6 @@ class FileLumberdash extends LumberdashClient {
 
   Future<void> _log(String data) async {
     try {
-      _logFile = File(_filePath);
       _lock.synchronized(() async {
         final date = DateTime.now();
         await _logFile.writeAsString(
