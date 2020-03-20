@@ -1,8 +1,7 @@
 name: file_lumberdash
 description: Lumberdash plugin that outputs your logs to the file system.
 version: 0.0.1
-author: Jennifer Jesuraj <jennifer.jesuraj@gmail.com>
-homepage: 
+homepage: https://bmw-tech.github.io/lumberdash/
 
 environment:
   sdk: ">=2.4.0 <3.0.0"
