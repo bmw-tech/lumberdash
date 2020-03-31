@@ -35,6 +35,21 @@ void main() {
       verify(mockClient.logFatal('Fatal')).called(1);
       verify(mockClient.logError('Error')).called(1);
     });
+
+    test('should not log messages in production', () {
+      final mockClient = MockClient();
+
+      putLumberdashToWork(withClients: [mockClient], development: false);
+      logMessage('Message', developmentOnly: true);
+      logWarning('Message', developmentOnly: true);
+      logError('Message', developmentOnly: true);
+      logFatal('Message', developmentOnly: true);
+
+      verifyNever(mockClient.logMessage(any));
+      verifyNever(mockClient.logWarning(any));
+      verifyNever(mockClient.logError(any));
+      verifyNever(mockClient.logFatal(any));
+    });
   });
 
   group('log API', () {

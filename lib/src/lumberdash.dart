@@ -5,13 +5,19 @@ import 'client/client.dart';
 /// Initialize the `lumberdashClients` internally
 List<LumberdashClient> _lumberdashClients = [];
 
+/// Whether the app is running in production or development
+bool _development = false;
+
 /// As it name says, it puts Lumberdash to work by setting up its
 /// [LumberdashClient]. The full power of Lumberdash can
 /// be achieved when you use a custom [LumberdashClient], or multiple
 /// clients, that can fit your logging requirements.
-putLumberdashToWork({@required List<LumberdashClient> withClients}) {
+putLumberdashToWork({@required List<LumberdashClient> withClients, bool development}) {
   assert(withClients != null);
+  assert(_development = true);
+
   _lumberdashClients = withClients;
+  _development = development ?? _development;
 }
 
 /// It calls the `logMessage` method of the each [LumberdashClient]
@@ -23,8 +29,12 @@ String logMessage(
   String message, {
   Map<String, String> extras,
   List<Type> exceptFor: const [],
+  bool developmentOnly: false,
 }) {
-  _filterOutClientsAndLog(exceptFor, (c) => c.logMessage(message, extras));
+  if(!developmentOnly || (developmentOnly && _development)) {
+    _filterOutClientsAndLog(exceptFor, (c) => c.logMessage(message, extras));
+  }
+
   return message;
 }
 
@@ -37,8 +47,12 @@ String logWarning(
   String message, {
   Map<String, String> extras,
   List<Type> exceptFor: const [],
+  bool developmentOnly: false,
 }) {
-  _filterOutClientsAndLog(exceptFor, (c) => c.logWarning(message, extras));
+  if(!developmentOnly || (developmentOnly && _development)) {
+    _filterOutClientsAndLog(exceptFor, (c) => c.logWarning(message, extras));
+  }
+
   return message;
 }
 
@@ -51,8 +65,12 @@ String logFatal(
   String message, {
   Map<String, String> extras,
   List<Type> exceptFor: const [],
+  bool developmentOnly: false,
 }) {
-  _filterOutClientsAndLog(exceptFor, (c) => c.logFatal(message, extras));
+  if(!developmentOnly || (developmentOnly && _development)) {
+    _filterOutClientsAndLog(exceptFor, (c) => c.logFatal(message, extras));
+  }
+
   return message;
 }
 
@@ -65,8 +83,12 @@ dynamic logError(
   dynamic exception, {
   dynamic stacktrace,
   List<Type> exceptFor: const [],
+  bool developmentOnly: false,
 }) {
-  _filterOutClientsAndLog(exceptFor, (c) => c.logError(exception, stacktrace));
+  if(!developmentOnly || (developmentOnly && _development)) {
+    _filterOutClientsAndLog(exceptFor, (c) => c.logError(exception, stacktrace));
+  }
+
   return exception;
 }
 
