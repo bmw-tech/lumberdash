@@ -37,7 +37,11 @@ class ColorizeLumberdash extends LumberdashClient {
     final error = AnsiPen()
       ..white(bold: true)
       ..xterm(88, bg: true);
-    print(error('[ERROR] { exception: $exception, stacktrace: $stacktrace }'));
+    if (stacktrace == null) {
+      print(error('[ERROR] $exception'));
+    } else {
+      print(error('[ERROR] $exception\n$stacktrace'));
+    }
   }
 
   String _format(String tag, String message, Map<String, dynamic> extras) {
