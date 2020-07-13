@@ -23,7 +23,11 @@ class PrintLumberdash extends LumberdashClient {
   /// Prints an error message
   @override
   void logError(exception, [dynamic stacktrace]) {
-    print('[ERROR] { exception: $exception, stacktrace: $stacktrace }');
+    if (stacktrace == null) {
+      print('[ERROR] $exception');
+    } else {
+      print('[ERROR] $exception\n$stacktrace');
+    }
   }
 
   void _log(String tag, String message, Map<String, dynamic> extras) {
