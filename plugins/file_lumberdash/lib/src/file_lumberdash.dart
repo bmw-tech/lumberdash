@@ -48,10 +48,10 @@ class FileLumberdash extends LumberdashClient {
   /// Records an error message
   @override
   Future<void> logError(exception, [dynamic stacktrace]) async {
-    if (stacktrace != null) {
-      _log('[ERROR] { exception: $exception, stacktrace: $stacktrace }');
+    if (stacktrace == null) {
+      print('[ERROR] $exception');
     } else {
-      _log('[ERROR] { exception: $exception }');
+      print('[ERROR] $exception\n$stacktrace');
     }
   }
 
