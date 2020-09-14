@@ -11,10 +11,12 @@ main() {
     FirebaseLumberdash firebaseLumberdash;
     String releaseVersion = '1.0.0';
     String environment = 'development';
+    String loggerName = 'FirebaseLumberdashLogger';
     Map<String, String> extras = {
       'foo': 'bar',
       'test': 'passed',
     };
+    String message = 'test-message';
 
     setUp(() {
       firebaseAnalytics = MockFirebaseAnalytics();
@@ -22,6 +24,7 @@ main() {
         firebaseAnalyticsClient: firebaseAnalytics,
         releaseVersion: releaseVersion,
         environment: environment,
+        loggerName: loggerName,
       );
     });
 
@@ -32,6 +35,7 @@ main() {
             firebaseAnalyticsClient: null,
             releaseVersion: releaseVersion,
             environment: environment,
+            loggerName: loggerName,
           );
         } catch (error) {
           expect(error, isAssertionError);
@@ -44,6 +48,7 @@ main() {
             firebaseAnalyticsClient: firebaseAnalytics,
             releaseVersion: null,
             environment: environment,
+            loggerName: loggerName,
           );
         } catch (error) {
           expect(error, isAssertionError);
@@ -56,6 +61,20 @@ main() {
             firebaseAnalyticsClient: firebaseAnalytics,
             releaseVersion: releaseVersion,
             environment: null,
+            loggerName: loggerName,
+          );
+        } catch (error) {
+          expect(error, isAssertionError);
+        }
+      });
+
+      test('throws AssertionError when loggerName is null', () {
+        try {
+          FirebaseLumberdash(
+            firebaseAnalyticsClient: firebaseAnalytics,
+            releaseVersion: releaseVersion,
+            environment: environment,
+            loggerName: null,
           );
         } catch (error) {
           expect(error, isAssertionError);
@@ -64,14 +83,15 @@ main() {
     });
 
     test('logMessage w/extras', () {
-      firebaseLumberdash.logMessage('myMessage', extras);
+      firebaseLumberdash.logMessage(message, extras);
       verify(
         firebaseAnalytics.logEvent(
-          name: 'myMessage',
+          name: loggerName,
           parameters: {
             'environment': environment,
             'release': releaseVersion,
             'level': 'MESSAGE',
+            'message': message,
             'foo': 'bar',
             'test': 'passed',
           },
@@ -80,12 +100,13 @@ main() {
     });
 
     test('logMessage w/out extras', () {
-      firebaseLumberdash.logMessage('myMessage', null);
+      firebaseLumberdash.logMessage(message, null);
       verify(
         firebaseAnalytics.logEvent(
-          name: 'myMessage',
+          name: loggerName,
           parameters: {
             'environment': environment,
+            'message': message,
             'release': releaseVersion,
             'level': 'MESSAGE',
           },
@@ -99,11 +120,12 @@ main() {
       firebaseLumberdash.logError(exception, stacktrace);
       verify(
         firebaseAnalytics.logEvent(
-          name: exception,
+          name: loggerName,
           parameters: {
             'environment': environment,
             'release': releaseVersion,
             'level': 'ERROR',
+            'message': exception,
             'stacktrace': stacktrace,
           },
         ),
@@ -115,10 +137,11 @@ main() {
       firebaseLumberdash.logError(exception, null);
       verify(
         firebaseAnalytics.logEvent(
-          name: exception,
+          name: loggerName,
           parameters: {
             'environment': environment,
             'release': releaseVersion,
+            'message': exception,
             'level': 'ERROR',
             'stacktrace': null,
           },
@@ -130,10 +153,11 @@ main() {
       firebaseLumberdash.logFatal('myFatal', extras);
       verify(
         firebaseAnalytics.logEvent(
-          name: 'myFatal',
+          name: loggerName,
           parameters: {
             'environment': environment,
             'release': releaseVersion,
+            'message': 'myFatal',
             'level': 'FATAL',
             'foo': 'bar',
             'test': 'passed',
@@ -146,10 +170,11 @@ main() {
       firebaseLumberdash.logFatal('myFatal', null);
       verify(
         firebaseAnalytics.logEvent(
-          name: 'myFatal',
+          name: loggerName,
           parameters: {
             'environment': environment,
             'release': releaseVersion,
+            'message': 'myFatal',
             'level': 'FATAL',
           },
         ),
@@ -160,11 +185,12 @@ main() {
       firebaseLumberdash.logWarning('myWarning', extras);
       verify(
         firebaseAnalytics.logEvent(
-          name: 'myWarning',
+          name: loggerName,
           parameters: {
             'environment': environment,
             'release': releaseVersion,
             'level': 'WARNING',
+            'message': 'myWarning',
             'foo': 'bar',
             'test': 'passed',
           },
@@ -176,10 +202,11 @@ main() {
       firebaseLumberdash.logWarning('myWarning', null);
       verify(
         firebaseAnalytics.logEvent(
-          name: 'myWarning',
+          name: loggerName,
           parameters: {
             'environment': environment,
             'release': releaseVersion,
+            'message': 'myWarning',
             'level': 'WARNING',
           },
         ),
