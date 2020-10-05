@@ -1,3 +1,8 @@
+# v2.2.0 (October 5th, 2020)
+
+- Update `firebase_lumberdash` to `firebase_analytics ^6.0.1`
+- Minor inline documentation updates to `firebase_lumbderdash`
+
 # v2.1.0 (October 25th, 2019)
 
 - Make `extras` strongly typed
