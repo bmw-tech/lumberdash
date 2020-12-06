@@ -11,10 +11,21 @@ Add `sentry_lumberdash` to your dependencies. Then pass an instance of `SentryLu
 ```dart
 import 'package:lumberdash/lumberdash.dart';
 import 'package:sentry_lumberdash/sentry_lumberdash.dart';
+import 'dart:async';
+import 'package:sentry/sentry.dart';
 
-void main() {
+Future<void> main() async {
+  await Sentry.init(
+    (options) {
+      options.dsn = 'https://example@sentry.io/add-your-dsn-here';
+    },
+    appRunner: initApp, // Init your App.
+  );
+}
+
+void initApp() {
   putLumberdashToWork(
-    withClient: SentryLumberdash.withDsn(dsnKey: 'your_key'),
+    withClient: SentryLumberdash(),
   );
   logWarning('Hello Warning');
   logFatal('Hello Fatal!');
@@ -22,6 +33,10 @@ void main() {
   logError(Exception('Hello Error'));
 }
 ```
+
+This works with 
+[sentry-dart](https://pub.dev/packages/sentry/versions/4.0.0-beta.1) and
+[sentry-flutter](https://pub.dev/packages/sentry_flutter).
 
 ## License
 
