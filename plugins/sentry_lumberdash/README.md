@@ -6,7 +6,7 @@ It sends your logs to [Sentry](https://sentry.io/welcome/) with the proper sever
 
 ## How to use
 
-Add `sentry_lumberdash` to your dependencies. Then pass an instance of `SentryLumberdash` to `lumberdash`:
+Add `sentry_lumberdash` to your dependencies. Initialize Sentry and then pass an instance of `SentryLumberdash` to `lumberdash`:
 
 ```dart
 import 'package:lumberdash/lumberdash.dart';
@@ -35,7 +35,7 @@ void initApp() {
 ```
 
 This works with 
-[sentry-dart](https://pub.dev/packages/sentry/versions/4.0.0-beta.1) and
+[sentry-dart](https://pub.dev/packages/sentry/versions) and
 [sentry-flutter](https://pub.dev/packages/sentry_flutter).
 
 ## License

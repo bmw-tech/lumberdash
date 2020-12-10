@@ -6,7 +6,7 @@ import 'package:sentry/sentry.dart';
 /// with [Sentry.captureException].
 ///
 /// To use this client, Sentry must be initialized according to
-/// [sentry-dart](https://pub.dev/packages/sentry/versions/4.0.0-beta.1) or
+/// [sentry-dart](https://pub.dev/packages/sentry) or
 /// [sentry-flutter](https://pub.dev/packages/sentry_flutter).
 /// This [SentryLumberdash] then uses the correct Sentry configuration.
 class SentryLumberdash extends LumberdashClient {
