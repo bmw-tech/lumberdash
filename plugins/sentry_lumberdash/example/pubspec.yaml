@@ -6,6 +6,7 @@ environment:
   sdk: ">=2.0.0 <3.0.0"
 
 dependencies:
+  sentry: ^4.0.0
   lumberdash: ^2.1.0
   sentry_lumberdash:
     path: ../
