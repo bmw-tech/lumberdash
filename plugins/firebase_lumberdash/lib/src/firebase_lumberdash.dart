@@ -29,7 +29,7 @@ class FirebaseLumberdash extends LumberdashClient {
   }
 
   /// Sends a log to Firebase Analytics using the given [FirebaseAnalytics] with level
-  /// [warning]
+  /// warning.
   @override
   void logWarning(String message, [Map<String, String> extras]) {
     firebaseAnalyticsClient.logEvent(
@@ -39,7 +39,7 @@ class FirebaseLumberdash extends LumberdashClient {
   }
 
   /// Sends a log to Firebase Analytics using the given [FirebaseAnalytics] with level
-  /// [fatal]
+  /// fatal.
   @override
   void logFatal(String message, [Map<String, String> extras]) {
     firebaseAnalyticsClient.logEvent(
@@ -49,7 +49,7 @@ class FirebaseLumberdash extends LumberdashClient {
   }
 
   /// Sends a log to Firebase Analytics using the given [FirebaseAnalytics] with level
-  /// [error]
+  /// error.
   @override
   void logError(dynamic exception, [dynamic stacktrace]) {
     firebaseAnalyticsClient.logEvent(
