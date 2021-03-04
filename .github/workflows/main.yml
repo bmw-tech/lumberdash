@@ -23,18 +23,20 @@ jobs:
       - name: Install dependencies
         working-directory: ${{ matrix.package }}
         run: dart pub get
-
+      
       - name: Analyze
         working-directory: ${{ matrix.package }}
         run: dart analyze --fatal-infos --fatal-warnings lib
-      
+        
       - name: Activate coverage
         run: pub global activate coverage
       
       - name: Run Tests
+        working-directory: ${{ matrix.package }}
         run: pub run test test
       
       - name: Start Observatory
+        working-directory: ${{ matrix.package }}
         run: dart
            --disable-service-auth-codes
            --pause-isolates-on-exit
@@ -43,6 +45,7 @@ jobs:
            test test &
 
       - name: Collect coverage
+        working-directory: ${{ matrix.package }}
         run: nohup pub global run coverage:collect_coverage
           --port=9822
           --out=coverage/coverage.json
@@ -50,6 +53,7 @@ jobs:
           --resume-isolates
 
       - name: Generate Report
+        working-directory: ${{ matrix.package }}
         run: pub global run coverage:format_coverage
           --lcov
           --in=coverage/coverage.json
