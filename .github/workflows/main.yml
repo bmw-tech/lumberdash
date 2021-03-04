@@ -15,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        package: ["", "plugins/colorize_lumberdash", "plugins/file_lumberdash", "plugins/sentry_lumberdash"]
+        package: ["",]
         version: ["latest",]
     steps:
       - uses: actions/checkout@v2
@@ -72,7 +72,7 @@ jobs:
 
     strategy:
       matrix:
-        package: ["plugins/firebase_lumberdash"]
+        package: []
         channel: ["stable",]
 
     steps:
