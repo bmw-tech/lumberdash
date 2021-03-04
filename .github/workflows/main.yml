@@ -42,7 +42,7 @@ jobs:
            --pause-isolates-on-exit
            --enable-vm-service=9822
            --enable-asserts
-           test test &
+           test/lumberdash_test.dart &
 
       - name: Collect coverage
         working-directory: ${{ matrix.package }}
