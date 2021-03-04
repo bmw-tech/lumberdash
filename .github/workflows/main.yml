@@ -1,0 +1,71 @@
+name: lumberdash_CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build_dart:
+    runs-on: ubuntu-latest
+
+    container:
+      image: google/dart:${{ matrix.version }}
+
+    strategy:
+      matrix:
+        package: ["", "plugins/colorize_lumberdash", "plugins/file_lumberdash", "plugins/sentry_lumberdash"]
+        version: ["latest",]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        working-directory: ${{ matrix.package }}
+        run: dart pub get
+
+      - name: Analyze
+        working-directory: ${{ matrix.package }}
+        run: dart analyze --fatal-infos --fatal-warnings .
+
+      - name: Tests
+        working-directory: ${{ matrix.package }}
+        run: dart pub run test_coverage
+
+      - name: Upload coverage to codecov
+        uses: codecov/codecov-action@v1
+        with:
+          flags: ${{ matrix.package }}
+          file: ./${{ matrix.package }}/coverage/lcov.info
+  
+  build_flutter:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        package: ["plugins/firebase_lumberdash"]
+        channel: ["stable",]
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: ${{ matrix.channel }}
+
+      - name: Install dependencies
+        run: flutter packages get
+        working-directory: ${{ matrix.package }}
+
+      - name: Analyze
+        run: flutter analyze
+        working-directory: ${{ matrix.package }}
+
+      - name: Tests
+        run: flutter test --coverage --coverage-path coverage/lcov.info
+        working-directory: ${{ matrix.package }}
+
+      - name: Upload coverage to codecov
+        uses: codecov/codecov-action@v1
+        with:
+          flags: ${{ matrix.package }}
+          file: ./${{ matrix.package }}/coverage/lcov.info
