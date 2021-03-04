@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import 'client/client.dart';
 
 /// Initialize the `lumberdashClients` internally
@@ -9,8 +7,7 @@ List<LumberdashClient> _lumberdashClients = [];
 /// [LumberdashClient]. The full power of Lumberdash can
 /// be achieved when you use a custom [LumberdashClient], or multiple
 /// clients, that can fit your logging requirements.
-putLumberdashToWork({@required List<LumberdashClient> withClients}) {
-  assert(withClients != null);
+putLumberdashToWork({required List<LumberdashClient> withClients}) {
   _lumberdashClients = withClients;
 }
 
@@ -21,8 +18,8 @@ putLumberdashToWork({@required List<LumberdashClient> withClients}) {
 /// `exceptFor` to filter out that client.
 String logMessage(
   String message, {
-  Map<String, String> extras,
-  List<Type> exceptFor: const [],
+  Map<String, String>? extras,
+  List<Type> exceptFor = const [],
 }) {
   _filterOutClientsAndLog(exceptFor, (c) => c.logMessage(message, extras));
   return message;
@@ -35,8 +32,8 @@ String logMessage(
 /// `exceptFor` to filter out that client.
 String logWarning(
   String message, {
-  Map<String, String> extras,
-  List<Type> exceptFor: const [],
+  Map<String, String>? extras,
+  List<Type> exceptFor = const [],
 }) {
   _filterOutClientsAndLog(exceptFor, (c) => c.logWarning(message, extras));
   return message;
@@ -49,8 +46,8 @@ String logWarning(
 /// `exceptFor` to filter out that client.
 String logFatal(
   String message, {
-  Map<String, String> extras,
-  List<Type> exceptFor: const [],
+  Map<String, String>? extras,
+  List<Type> exceptFor = const [],
 }) {
   _filterOutClientsAndLog(exceptFor, (c) => c.logFatal(message, extras));
   return message;
@@ -64,7 +61,7 @@ String logFatal(
 dynamic logError(
   dynamic exception, {
   dynamic stacktrace,
-  List<Type> exceptFor: const [],
+  List<Type> exceptFor = const [],
 }) {
   _filterOutClientsAndLog(exceptFor, (c) => c.logError(exception, stacktrace));
   return exception;
