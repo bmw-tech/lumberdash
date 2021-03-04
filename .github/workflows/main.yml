@@ -28,9 +28,28 @@ jobs:
         working-directory: ${{ matrix.package }}
         run: dart analyze --fatal-infos --fatal-warnings lib
 
-      - name: Tests
-        working-directory: ${{ matrix.package }}
-        run: dart pub run test_coverage
+      - name: Start tests
+        run: dart
+           --disable-service-auth-codes
+           --pause-isolates-on-exit
+           --enable-vm-service=9822
+           --enable-asserts
+           test test &
+
+      - name: Collect coverage
+        run: nohup pub global run coverage:collect_coverage
+          --port=9822
+          --out=coverage/coverage.json
+          --wait-paused
+          --resume-isolates
+
+      - name: Generate Report
+        run: pub global run coverage:format_coverage
+          --lcov
+          --in=coverage/coverage.json
+          --out=coverage/lcov.info
+          --packages=.packages
+          --report-on=lib
 
       - name: Upload coverage to codecov
         uses: codecov/codecov-action@v1
