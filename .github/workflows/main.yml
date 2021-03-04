@@ -1,4 +1,4 @@
-name: lumberdash_CI
+name: Build
 
 on:
   push:
