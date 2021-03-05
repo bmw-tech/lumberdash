@@ -4,7 +4,7 @@
 [![codecov](https://codecov.io/gh/bmw-tech/lumberdash/branch/master/graph/badge.svg)](https://codecov.io/gh/bmw-tech/lumberdash)
 [![Pub](https://img.shields.io/pub/v/lumberdash.svg)](https://pub.dartlang.org/packages/lumberdash)
 
-![lumberdash icon](./art/lumberdash.png)
+![lumberdash icon](https://github.com/bmw-tech/lumberdash/raw/master/art/lumberdash.png)
 
 Do you need logs? Lumberdash is the answer! With a simple but powerful logging API, Lumberdash is the easiest way to record logs.
 And if that is not enough, you can extend its API and create your own custom plugins for your own logging needs.
@@ -66,14 +66,15 @@ You can see the `SimpleClient` in this package as inspiration.
 
 ## Maintainers
 
-Project Lead(s):
+This project is maintained by BMW Group.
 
-- Tim Chabot(@tchabot22)
-
-Main Maintainer(s):
+Thank you to the original authors
 
 - Jorge Coca (@jorgecoca)
 - Felix Angelov (@felangel)
+- Tim Chabot(@tchabot22)
+
+and all contributors.
 
 ## License
 
