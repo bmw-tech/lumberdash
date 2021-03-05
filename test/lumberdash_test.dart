@@ -8,21 +8,8 @@ class FilterOutClient extends Mock implements LumberdashClient {}
 
 void main() {
   group('putLumberdashToWork', () {
-    test('should break if no client is given', () {
-      try {
-        putLumberdashToWork(withClients: null);
-        fail('This could should not work');
-      } catch (e) {
-        expect(e is AssertionError, isTrue);
-      }
-    });
-
     test('should use the given client for logging', () {
       final mockClient = MockClient();
-      when(mockClient.logMessage(any)).thenReturn(null);
-      when(mockClient.logWarning(any)).thenReturn(null);
-      when(mockClient.logFatal(any)).thenReturn(null);
-      when(mockClient.logError(any)).thenReturn(null);
 
       putLumberdashToWork(withClients: [mockClient]);
       logMessage('Message');
@@ -41,8 +28,6 @@ void main() {
     test('logMessage returns the given message', () {
       final mockClient1 = MockClient();
       final mockClient2 = MockClient();
-      when(mockClient1.logMessage(any)).thenReturn(null);
-      when(mockClient2.logMessage(any)).thenReturn(null);
 
       putLumberdashToWork(withClients: [mockClient1, mockClient2]);
       final result = logMessage('Message');
@@ -55,8 +40,6 @@ void main() {
     test('logMessage filters out exceptFor clients', () {
       final mockClient1 = MockClient();
       final mockClient2 = FilterOutClient();
-      when(mockClient1.logMessage(any)).thenReturn(null);
-      when(mockClient2.logMessage(any)).thenReturn(null);
 
       putLumberdashToWork(withClients: [mockClient1, mockClient2]);
       final result = logMessage('Message', exceptFor: [FilterOutClient]);
@@ -69,8 +52,6 @@ void main() {
     test('logWarning returns the given message', () {
       final mockClient1 = MockClient();
       final mockClient2 = MockClient();
-      when(mockClient1.logWarning(any)).thenReturn(null);
-      when(mockClient2.logWarning(any)).thenReturn(null);
 
       putLumberdashToWork(withClients: [mockClient1, mockClient2]);
       final result = logWarning('Warning');
@@ -83,8 +64,6 @@ void main() {
     test('logWarning filters out exceptFor clients', () {
       final mockClient1 = MockClient();
       final mockClient2 = FilterOutClient();
-      when(mockClient1.logWarning(any)).thenReturn(null);
-      when(mockClient2.logWarning(any)).thenReturn(null);
 
       putLumberdashToWork(withClients: [mockClient1, mockClient2]);
       final result = logWarning('Warning', exceptFor: [FilterOutClient]);
@@ -97,8 +76,6 @@ void main() {
     test('logFatal returns the given message', () {
       final mockClient1 = MockClient();
       final mockClient2 = MockClient();
-      when(mockClient1.logFatal(any)).thenReturn(null);
-      when(mockClient2.logFatal(any)).thenReturn(null);
 
       putLumberdashToWork(withClients: [mockClient1, mockClient2]);
       final result = logFatal('Fatal');
@@ -111,8 +88,6 @@ void main() {
     test('logFatal filters out exceptFor clients', () {
       final mockClient1 = MockClient();
       final mockClient2 = FilterOutClient();
-      when(mockClient1.logFatal(any)).thenReturn(null);
-      when(mockClient2.logFatal(any)).thenReturn(null);
 
       putLumberdashToWork(withClients: [mockClient1, mockClient2]);
       final result = logFatal('Fatal', exceptFor: [FilterOutClient]);
@@ -125,8 +100,6 @@ void main() {
     test('logError returns the given exception', () {
       final mockClient1 = MockClient();
       final mockClient2 = MockClient();
-      when(mockClient1.logError(any)).thenReturn(null);
-      when(mockClient2.logError(any)).thenReturn(null);
 
       putLumberdashToWork(withClients: [mockClient1, mockClient2]);
       final exception = Exception('Error');
@@ -140,8 +113,6 @@ void main() {
     test('logError filters out exceptFor clients', () {
       final mockClient1 = MockClient();
       final mockClient2 = FilterOutClient();
-      when(mockClient1.logError(any)).thenReturn(null);
-      when(mockClient2.logError(any)).thenReturn(null);
 
       putLumberdashToWork(withClients: [mockClient1, mockClient2]);
       final result = logError('Error', exceptFor: [FilterOutClient]);

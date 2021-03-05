@@ -5,7 +5,7 @@
 .pub/
 .settings/
 coverage/*
-test/.test_coverage.dart
+*test/.test_coverage.dart
 *.iml
 **/build
 **/packages

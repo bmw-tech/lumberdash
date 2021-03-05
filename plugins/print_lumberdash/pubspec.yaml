@@ -11,3 +11,8 @@ environment:
 dependencies:
   lumberdash: ^2.1.0
   meta: ^1.0.0
+  
+dev_dependencies:
+  test: ^1.4.0
+  test_coverage: ^0.2.0
+  mockito: ^4.0.0
