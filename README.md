@@ -66,14 +66,15 @@ You can see the `SimpleClient` in this package as inspiration.
 
 ## Maintainers
 
-Project Lead(s):
+This project is maintained by BMW Group.
 
-- Tim Chabot(@tchabot22)
-
-Main Maintainer(s):
+Thank you to the original authors
 
 - Jorge Coca (@jorgecoca)
 - Felix Angelov (@felangel)
+- Tim Chabot(@tchabot22)
+
+and all contributors.
 
 ## License
 
