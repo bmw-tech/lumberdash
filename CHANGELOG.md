@@ -1,3 +1,8 @@
+# v3.0.0
+
+- Added support for nullsafety
+- Updated sentry to v4.0.0 stable version
+
 # v2.1.0
 
 - Make `extras` strongly typed: `Map<String, String>`
