@@ -5,8 +5,7 @@ description: >-
   cover all your logging needs.
 version: 3.0.0
 authors:
-  - Jorge Coca <jcocaramos@gmail.com>
-  - Felix Angelov <felangelov@gmail.com>
+  - BMW Group <flutter-dev@bmwgroup.com>
 repository: https://github.com/bmw-tech/lumberdash
 issue_tracker: https://github.com/bmw-tech/lumberdash/issues
 homepage: https://bmw-tech.github.io/lumberdash/

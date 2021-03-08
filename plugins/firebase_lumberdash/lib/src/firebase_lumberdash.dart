@@ -1,5 +1,5 @@
 import 'package:lumberdash/lumberdash.dart';
-import 'package:meta/meta.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:firebase_analytics/firebase_analytics.dart';
 
 /// [LumberdashClient] that sends your logs to Firebase Analytics
@@ -12,12 +12,10 @@ class FirebaseLumberdash extends LumberdashClient {
   /// client, [releaseVersion] and [environment], all parameters
   /// used by the [FirebaseAnalytics] client when sending a log.
   FirebaseLumberdash({
-    @required this.firebaseAnalyticsClient,
-    @required this.releaseVersion,
-    @required this.environment,
-  })  : assert(firebaseAnalyticsClient != null),
-        assert(releaseVersion != null),
-        assert(environment != null);
+    this.firebaseAnalyticsClient,
+    this.releaseVersion,
+    this.environment,
+  });
 
   /// Sends a log to Firebase Analytics using the given [FirebaseAnalytics] client
   @override

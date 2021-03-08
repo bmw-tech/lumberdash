@@ -1,3 +1,7 @@
+# v3.0.0
+
+- Added support for lumberdash v3
+
 # v2.2.0 (October 5th, 2020)
 
 - Update `firebase_lumberdash` to `firebase_analytics ^6.0.1`

@@ -12,7 +12,7 @@ import 'package:sentry/sentry.dart';
 class SentryLumberdash extends LumberdashClient {
   /// Sends a breadcrumb to Sentry with level [SentryLevel.info]
   @override
-  void logMessage(String message, [Map<String, String> extras]) {
+  void logMessage(String message, [Map<String, String>? extras]) {
     Sentry.addBreadcrumb(
       Breadcrumb(
         level: SentryLevel.info,
@@ -24,7 +24,7 @@ class SentryLumberdash extends LumberdashClient {
 
   /// Sends a breadcrumb to Sentry with level [SentryLevel.warning]
   @override
-  void logWarning(String message, [Map<String, String> extras]) {
+  void logWarning(String message, [Map<String, String>? extras]) {
     Sentry.addBreadcrumb(
       Breadcrumb(
         level: SentryLevel.warning,
@@ -36,7 +36,7 @@ class SentryLumberdash extends LumberdashClient {
 
   /// Sends a breadcrumb to Sentry with level [SentryLevel.fatal]
   @override
-  void logFatal(String message, [Map<String, String> extras]) {
+  void logFatal(String message, [Map<String, String>? extras]) {
     Sentry.addBreadcrumb(
       Breadcrumb(
         level: SentryLevel.fatal,

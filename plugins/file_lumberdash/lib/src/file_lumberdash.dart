@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:lumberdash/lumberdash.dart';
 import 'package:synchronized/synchronized.dart';
-import 'package:meta/meta.dart';
 
 /// [LumberdashClient] that writes your logs to the given file path
 /// in the file system
@@ -11,13 +10,12 @@ class FileLumberdash extends LumberdashClient {
   static final _lock = Lock();
 
   FileLumberdash({
-    @required String filePath,
-  })  : assert(filePath != null),
-        _logFile = File(filePath);
+    required String filePath,
+  }) : _logFile = File(filePath);
 
   /// Records a regular message
   @override
-  void logMessage(String message, [Map<String, String> extras]) {
+  void logMessage(String message, [Map<String, String>? extras]) {
     if (extras != null) {
       _log('[MESSAGE] $message, extras: $extras');
     } else {
@@ -27,7 +25,7 @@ class FileLumberdash extends LumberdashClient {
 
   /// Records a warning message
   @override
-  void logWarning(String message, [Map<String, String> extras]) {
+  void logWarning(String message, [Map<String, String>? extras]) {
     if (extras != null) {
       _log('[WARNING] $message, extras: $extras');
     } else {
@@ -37,7 +35,7 @@ class FileLumberdash extends LumberdashClient {
 
   /// Records a fatal message
   @override
-  void logFatal(String message, [Map<String, String> extras]) {
+  void logFatal(String message, [Map<String, String>? extras]) {
     if (extras != null) {
       _log('[FATAL] $message, extras: $extras');
     } else {
