@@ -4,7 +4,9 @@ description: >-
 version: 3.0.0
 authors:
   - BMW Group <flutter-dev@bmwgroup.com>
-homepage: https://github.com/jorgecoca/lumberdash
+repository: https://github.com/bmw-tech/lumberdash
+issue_tracker: https://github.com/bmw-tech/lumberdash/issues
+homepage: https://bmw-tech.github.io/lumberdash/
 
 environment:
   sdk: '>=2.11.0 <3.0.0'
