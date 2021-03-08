@@ -1,6 +1,5 @@
 # v3.0.0
 
-- Added support for nullsafety
 - Added support for lumberdash v3
 
 # v2.2.0 (October 5th, 2020)
