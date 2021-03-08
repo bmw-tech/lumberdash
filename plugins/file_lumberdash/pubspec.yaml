@@ -1,6 +1,8 @@
 name: file_lumberdash
 description: Lumberdash package that outputs your logs to the file system.
 version: 0.0.1
+repository: https://github.com/bmw-tech/lumberdash
+issue_tracker: https://github.com/bmw-tech/lumberdash/issues
 homepage: https://bmw-tech.github.io/lumberdash/
 authors:
   - BMW Group <flutter-dev@bmwgroup.com>
