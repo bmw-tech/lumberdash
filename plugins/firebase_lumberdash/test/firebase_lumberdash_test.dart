@@ -8,8 +8,8 @@ class MockFirebaseAnalytics extends Mock implements FirebaseAnalytics {}
 
 main() {
   group('Firebase Lumberdash', () {
-    late MockFirebaseAnalytics firebaseAnalytics;
-    late FirebaseLumberdash firebaseLumberdash;
+    MockFirebaseAnalytics firebaseAnalytics;
+    FirebaseLumberdash firebaseLumberdash;
     String releaseVersion = '1.0.0';
     String environment = 'development';
     Map<String, String> extras = {
