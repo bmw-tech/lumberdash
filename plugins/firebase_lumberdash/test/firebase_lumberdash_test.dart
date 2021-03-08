@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_lumberdash/firebase_lumberdash.dart';
 
@@ -7,8 +8,8 @@ class MockFirebaseAnalytics extends Mock implements FirebaseAnalytics {}
 
 main() {
   group('Firebase Lumberdash', () {
-    MockFirebaseAnalytics firebaseAnalytics;
-    FirebaseLumberdash firebaseLumberdash;
+    late MockFirebaseAnalytics firebaseAnalytics;
+    late FirebaseLumberdash firebaseLumberdash;
     String releaseVersion = '1.0.0';
     String environment = 'development';
     Map<String, String> extras = {
@@ -28,37 +29,14 @@ main() {
     group('initialization', () {
       test('throws AssertionError when firebaseAnalyticsClient is null', () {
         try {
-          FirebaseLumberdash(
-            firebaseAnalyticsClient: null,
+          final firebaseLumberdash = FirebaseLumberdash(
+            firebaseAnalyticsClient: firebaseAnalytics,
             releaseVersion: releaseVersion,
             environment: environment,
           );
+          expect(firebaseLumberdash, isA<FirebaseLumberdash>());
         } catch (error) {
-          expect(error, isAssertionError);
-        }
-      });
-
-      test('throws AssertionError when releaseVersion is null', () {
-        try {
-          FirebaseLumberdash(
-            firebaseAnalyticsClient: firebaseAnalytics,
-            releaseVersion: null,
-            environment: environment,
-          );
-        } catch (error) {
-          expect(error, isAssertionError);
-        }
-      });
-
-      test('throws AssertionError when environment is null', () {
-        try {
-          FirebaseLumberdash(
-            firebaseAnalyticsClient: firebaseAnalytics,
-            releaseVersion: releaseVersion,
-            environment: null,
-          );
-        } catch (error) {
-          expect(error, isAssertionError);
+          fail('Shouldnt throw an error');
         }
       });
     });

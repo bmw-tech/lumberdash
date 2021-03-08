@@ -4,19 +4,19 @@ import 'package:lumberdash/lumberdash.dart';
 class PrintLumberdash extends LumberdashClient {
   /// Prints a regular message
   @override
-  void logMessage(String message, [Map<String, String> extras]) {
+  void logMessage(String message, [Map<String, String>? extras]) {
     _log('MESSAGE', message, extras);
   }
 
   /// Prints a warning message
   @override
-  void logWarning(String message, [Map<String, String> extras]) {
+  void logWarning(String message, [Map<String, String>? extras]) {
     _log('WARNING', message, extras);
   }
 
   /// Prints a fatal message
   @override
-  void logFatal(String message, [Map<String, String> extras]) {
+  void logFatal(String message, [Map<String, String>? extras]) {
     _log('FATAL', message, extras);
   }
 
@@ -26,7 +26,7 @@ class PrintLumberdash extends LumberdashClient {
     print('[ERROR] { exception: $exception, stacktrace: $stacktrace }');
   }
 
-  void _log(String tag, String message, Map<String, dynamic> extras) {
+  void _log(String tag, String message, Map<String, dynamic>? extras) {
     if (extras != null) {
       print('[$tag] $message, extras: $extras');
     } else {

@@ -15,14 +15,5 @@ void main() {
         fail('Exception occured when creating a FileLumberdash: $e');
       }
     });
-
-    test('create instance with a null filePath should throw', () {
-      try {
-        FileLumberdash(filePath: null);
-        fail('Should throw an exception');
-      } catch (e) {
-        expect(e is AssertionError, isTrue);
-      }
-    });
   });
 }

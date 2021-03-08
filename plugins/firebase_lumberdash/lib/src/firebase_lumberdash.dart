@@ -1,5 +1,5 @@
 import 'package:lumberdash/lumberdash.dart';
-import 'package:meta/meta.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:firebase_analytics/firebase_analytics.dart';
 
 /// [LumberdashClient] that sends your logs to Firebase Analytics
@@ -12,16 +12,14 @@ class FirebaseLumberdash extends LumberdashClient {
   /// client, [releaseVersion] and [environment], all parameters
   /// used by the [FirebaseAnalytics] client when sending a log.
   FirebaseLumberdash({
-    @required this.firebaseAnalyticsClient,
-    @required this.releaseVersion,
-    @required this.environment,
-  })  : assert(firebaseAnalyticsClient != null),
-        assert(releaseVersion != null),
-        assert(environment != null);
+    required this.firebaseAnalyticsClient,
+    required this.releaseVersion,
+    required this.environment,
+  });
 
   /// Sends a log to Firebase Analytics using the given [FirebaseAnalytics] client
   @override
-  void logMessage(String message, [Map<String, String> extras]) {
+  void logMessage(String message, [Map<String, String>? extras]) {
     firebaseAnalyticsClient.logEvent(
       name: message,
       parameters: _buildParameters('MESSAGE', extras),
@@ -31,7 +29,7 @@ class FirebaseLumberdash extends LumberdashClient {
   /// Sends a log to Firebase Analytics using the given [FirebaseAnalytics] with level
   /// warning.
   @override
-  void logWarning(String message, [Map<String, String> extras]) {
+  void logWarning(String message, [Map<String, String>? extras]) {
     firebaseAnalyticsClient.logEvent(
       name: message,
       parameters: _buildParameters('WARNING', extras),
@@ -41,7 +39,7 @@ class FirebaseLumberdash extends LumberdashClient {
   /// Sends a log to Firebase Analytics using the given [FirebaseAnalytics] with level
   /// fatal.
   @override
-  void logFatal(String message, [Map<String, String> extras]) {
+  void logFatal(String message, [Map<String, String>? extras]) {
     firebaseAnalyticsClient.logEvent(
       name: message,
       parameters: _buildParameters('FATAL', extras),
@@ -58,11 +56,11 @@ class FirebaseLumberdash extends LumberdashClient {
     );
   }
 
-  Map<String, String> _buildParameters(
+  Map<String, String?> _buildParameters(
     String logLevel,
-    Map<String, String> extras,
+    Map<String, String?>? extras,
   ) {
-    Map<String, String> parameters = {
+    Map<String, String?> parameters = {
       'environment': environment,
       'release': releaseVersion,
       'level': logLevel,

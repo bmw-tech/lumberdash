@@ -4,12 +4,12 @@ version: 1.0.0
 publish_to: none
 
 environment:
-  sdk: ">=2.0.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  lumberdash: ^2.1.0
+  lumberdash: ^3.0.0
   firebase_lumberdash:
     path: ../
 
