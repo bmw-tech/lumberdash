@@ -31,10 +31,6 @@ jobs:
       - name: Activate coverage
         run: pub global activate coverage
       
-      - name: Run Tests
-        working-directory: ${{ matrix.package }}
-        run: pub run test test
-      
       - name: Start Observatory
         working-directory: ${{ matrix.package }}
         run: dart
@@ -85,7 +81,12 @@ jobs:
         working-directory: ${{ matrix.package }}
 
       - name: Analyze
-        run: flutter analyze
+        run: |
+          package_str=${{ matrix.package }}
+          codecov_flag="${package_str//packages\/}"
+          echo "CODECOV_FLAG=${codecov_flag}" >> "$GITHUB_ENV"
+          flutter packages get
+          flutter analyze
         working-directory: ${{ matrix.package }}
 
       - name: Run tests
@@ -95,5 +96,5 @@ jobs:
       - name: Upload coverage to codecov
         uses: codecov/codecov-action@v1
         with:
-          flags: ${{ matrix.package }}
+          flags: ${{ env.CODECOV_FLAG }}
           file: ./${{ matrix.package }}/coverage/lcov.info
