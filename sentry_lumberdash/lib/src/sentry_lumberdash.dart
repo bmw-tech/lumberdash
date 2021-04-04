@@ -10,7 +10,7 @@ import 'package:sentry/sentry.dart';
 /// [sentry-flutter](https://pub.dev/packages/sentry_flutter).
 /// This [SentryLumberdash] then uses the correct Sentry configuration.
 class SentryLumberdash extends LumberdashClient {
-  SentryLumberdash({Hub? hub}) : _hub = hub ?? Sentry.currentHub;
+  SentryLumberdash({Hub? hub}) : _hub = hub ?? HubAdapter();
 
   Hub _hub;
 
