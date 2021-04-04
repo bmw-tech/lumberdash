@@ -1,6 +1,6 @@
 # sentry_lumberdash
 
-Plugin for [lumberdash](https://github.com/jorgecoca/lumberdash)
+Plugin for [lumberdash](https://github.com/bmw-tech/lumberdash)
 
 It sends your logs to [Sentry](https://sentry.io/welcome/) with the proper severity level
 
@@ -35,7 +35,7 @@ void initApp() {
 ```
 
 This works with 
-[sentry-dart](https://pub.dev/packages/sentry/versions) and
+[sentry-dart](https://pub.dev/packages/sentry) and
 [sentry-flutter](https://pub.dev/packages/sentry_flutter).
 
 ## License

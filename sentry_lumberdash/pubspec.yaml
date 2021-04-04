@@ -2,7 +2,7 @@ name: sentry_lumberdash
 description: >-
   Lumberdash plugin that sends your logs to Sentry with the proper
   severity level
-version: 3.0.0
+version: 3.1.0
 authors:
   - BMW Group <flutter-dev@bmwgroup.com>
 repository: https://github.com/bmw-tech/lumberdash
@@ -15,7 +15,7 @@ environment:
 dependencies:
   lumberdash: ^3.0.0
   meta: ^1.3.0
-  sentry: ^4.1.0-nullsafety.0
+  sentry: ^5.0.0
 
 dev_dependencies:
   test: ^1.16.5

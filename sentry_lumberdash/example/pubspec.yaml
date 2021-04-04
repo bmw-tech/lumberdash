@@ -1,16 +1,14 @@
 name: example
-description: Example project for Lumberjack
+description: Example project for sentry_lumberdash
 version: 1.0.0
 publish_to: none
 
 environment:
-  sdk: ">=2.0.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  sentry: ^4.0.0
-  lumberdash: ^2.1.0
+  sentry: ^5.0.0
+  lumberdash: ^3.0.0
   sentry_lumberdash:
     path: ../
-
-dev_dependencies:
 
