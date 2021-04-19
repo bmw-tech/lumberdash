@@ -1,7 +1,12 @@
+# v3.1.0
+
+- Update Sentry to version 5.0.0
+
 # v3.0.0
 
 - Added support for nullsafety
 - Added support for lumberdash v3
+
 # v2.1.0
 
 - Make `extras` strongly typed
