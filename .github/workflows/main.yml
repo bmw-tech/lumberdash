@@ -62,6 +62,13 @@ jobs:
         with:
           flags: ${{ matrix.package }}
           file: ./${{ matrix.package }}/coverage/lcov.info
+      
+      - name: ${{matrix.package}}'
+        uses: k-paxian/dart-package-publisher@master
+        relativePath: ${{matrix.package}}
+        with:
+          accessToken: ${{ secrets.OAUTH_ACCESS_TOKEN }}
+          refreshToken: ${{ secrets.OAUTH_REFRESH_TOKEN }}
   build_flutter:
     runs-on: ubuntu-latest
 
@@ -98,3 +105,10 @@ jobs:
         with:
           flags: ${{ env.CODECOV_FLAG }}
           file: ./${{ matrix.package }}/coverage/lcov.info
+
+      - name: ${{matrix.package}}'
+        uses: k-paxian/dart-package-publisher@master
+        relativePath: ${{matrix.package}}
+        with:
+          accessToken: ${{ secrets.OAUTH_ACCESS_TOKEN }}
+          refreshToken: ${{ secrets.OAUTH_REFRESH_TOKEN }}
