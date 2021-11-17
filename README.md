@@ -17,7 +17,7 @@ You can get the best of **Lumberdash** by using plugins! For example, by using t
 
 ```dart
 import 'package:lumberdash/lumberdash.dart';
-import 'package:colorize_lumberdash/colorize_lumberdash_client.dart';
+import 'package:colorize_lumberdash/colorize_lumberdash.dart';
 
 void main() {
   putLumberdashToWork(withClients: [ColorizeLumberdash()]);

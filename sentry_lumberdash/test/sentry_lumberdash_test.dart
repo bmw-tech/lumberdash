@@ -1,5 +1,4 @@
 import 'package:lumberdash/lumberdash.dart';
-import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
 import '../lib/sentry_lumberdash.dart';
@@ -148,6 +147,41 @@ class MockHub implements Hub {
       hint,
       ScopeCallback? withScope}) {
     // TODO: implement captureMessage
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<SentryId> captureTransaction(SentryTransaction transaction) {
+    // TODO: implement captureTransaction
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> captureUserFeedback(SentryUserFeedback userFeedback) {
+    // TODO: implement captureUserFeedback
+    throw UnimplementedError();
+  }
+
+  @override
+  ISentrySpan? getSpan() {
+    // TODO: implement getSpan
+    throw UnimplementedError();
+  }
+
+  @override
+  void setSpanContext(throwable, ISentrySpan span, String transaction) {
+    // TODO: implement setSpanContext
+  }
+
+  @override
+  ISentrySpan startTransaction(String name, String operation, {String? description, bool? bindToScope, Map<String, dynamic>? customSamplingContext}) {
+    // TODO: implement startTransaction
+    throw UnimplementedError();
+  }
+
+  @override
+  ISentrySpan startTransactionWithContext(SentryTransactionContext transactionContext, {Map<String, dynamic>? customSamplingContext, bool? bindToScope}) {
+    // TODO: implement startTransactionWithContext
     throw UnimplementedError();
   }
 }
