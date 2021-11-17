@@ -101,41 +101,10 @@ class MockHub implements Hub {
     addBreadcrumbCalls.add(AddBreadcrumbCall(crumb, hint));
   }
 
-  @override
-  Future<SentryId> captureException(
-    dynamic throwable, {
-    dynamic stackTrace,
-    dynamic hint,
-  }) async {
-    captureExceptionCalls
-        .add(CaptureExceptionCall(throwable, stackTrace, hint));
-    return SentryId.newId();
-  }
-
   // The following methods and properties are not needed for the tests.
 
   @override
   void bindClient(SentryClient client) {
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<SentryId> captureEvent(
-    SentryEvent event, {
-    dynamic stackTrace,
-    dynamic hint,
-  }) async {
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<SentryId> captureMessage(
-    String? message, {
-    SentryLevel? level = SentryLevel.info,
-    String? template,
-    List? params,
-    dynamic hint,
-  }) async {
     throw UnimplementedError();
   }
 
@@ -155,6 +124,32 @@ class MockHub implements Hub {
 
   @override
   SentryId get lastEventId => throw UnimplementedError();
+
+  @override
+  Future<SentryId> captureEvent(SentryEvent event,
+      {stackTrace, hint, ScopeCallback? withScope}) {
+    // TODO: implement captureEvent
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<SentryId> captureException(throwable,
+      {stackTrace, hint, ScopeCallback? withScope}) {
+    captureExceptionCalls
+        .add(CaptureExceptionCall(throwable, stackTrace, hint));
+    return Future.value(SentryId.newId());
+  }
+
+  @override
+  Future<SentryId> captureMessage(String? message,
+      {SentryLevel? level,
+      String? template,
+      List? params,
+      hint,
+      ScopeCallback? withScope}) {
+    // TODO: implement captureMessage
+    throw UnimplementedError();
+  }
 }
 
 class CaptureExceptionCall {
