@@ -1,3 +1,7 @@
+# v3.2.0
+
+- Update Sentry to version 6.x.x
+
 # v3.1.0
 
 - Update Sentry to version 5.0.0

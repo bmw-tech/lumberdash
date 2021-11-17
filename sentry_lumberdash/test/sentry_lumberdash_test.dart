@@ -1,5 +1,4 @@
 import 'package:lumberdash/lumberdash.dart';
-import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
 import '../lib/sentry_lumberdash.dart';
@@ -106,6 +105,7 @@ class MockHub implements Hub {
     dynamic throwable, {
     dynamic stackTrace,
     dynamic hint,
+    void Function(Scope)? withScope,
   }) async {
     captureExceptionCalls
         .add(CaptureExceptionCall(throwable, stackTrace, hint));
@@ -124,6 +124,7 @@ class MockHub implements Hub {
     SentryEvent event, {
     dynamic stackTrace,
     dynamic hint,
+    void Function(Scope)? withScope,
   }) async {
     throw UnimplementedError();
   }
@@ -135,6 +136,7 @@ class MockHub implements Hub {
     String? template,
     List? params,
     dynamic hint,
+    void Function(Scope)? withScope,
   }) async {
     throw UnimplementedError();
   }
@@ -155,6 +157,12 @@ class MockHub implements Hub {
 
   @override
   SentryId get lastEventId => throw UnimplementedError();
+
+  @override
+  Future<void> captureUserFeedback(SentryUserFeedback userFeedback) {
+    // This is never called by SentryLumberdash
+    throw UnimplementedError();
+  }
 }
 
 class CaptureExceptionCall {
