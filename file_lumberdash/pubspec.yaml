@@ -1,6 +1,6 @@
 name: file_lumberdash
 description: Lumberdash package that outputs your logs to the file system.
-version: 1.0.0
+version: 1.1.0
 repository: https://github.com/bmw-tech/lumberdash
 issue_tracker: https://github.com/bmw-tech/lumberdash/issues
 homepage: https://bmw-tech.github.io/lumberdash/

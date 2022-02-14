@@ -1,7 +1,7 @@
 name: firebase_lumberdash
 description: >-
   Lumberdash plugin that sends your logs to Firebase Analytics
-version: 3.0.0
+version: 3.1.0
 repository: https://github.com/bmw-tech/lumberdash
 issue_tracker: https://github.com/bmw-tech/lumberdash/issues
 homepage: https://bmw-tech.github.io/lumberdash/
