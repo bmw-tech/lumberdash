@@ -3,7 +3,7 @@ description: >-
   Do you need logs? Lumberdash is the answer! Simple and extensible 
   logging API, it allows you to create and consume different that will
   cover all your logging needs.
-version: 3.0.0
+version: 3.1.0
 authors:
   - BMW Group <flutter-dev@bmwgroup.com>
 repository: https://github.com/bmw-tech/lumberdash

@@ -122,4 +122,94 @@ void main() {
       verifyZeroInteractions(mockClient2);
     });
   });
+
+  group('LogLevel handling', () {
+    test('should use the the given client with LogLevel error', () {
+      final mockClient = MockClient();
+
+      putLumberdashToWorkByLogLevel(withClients: {
+        mockClient: [LogLevel.fatal]
+      });
+      logMessage('Message');
+      logWarning('Warning');
+      logFatal('Fatal');
+      logError('Error');
+
+      verifyNever(mockClient.logMessage('Error'));
+      verifyNever(mockClient.logWarning('Error'));
+      verify(mockClient.logFatal('Fatal')).called(1);
+      verifyNever(mockClient.logError('Error'));
+    });
+
+    test(
+        'should use the the given client with LogLevel message, warning, error',
+        () {
+      final mockClient = MockClient();
+
+      putLumberdashToWorkByLogLevel(withClients: {
+        mockClient: [LogLevel.message, LogLevel.warning, LogLevel.error]
+      });
+      logMessage('Message');
+      logWarning('Warning');
+      logFatal('Fatal');
+      logError('Error');
+
+      verify(mockClient.logMessage('Message')).called(1);
+      verify(mockClient.logWarning('Warning')).called(1);
+      verifyNever(mockClient.logFatal('Fatal'));
+      verify(mockClient.logError('Error')).called(1);
+    });
+
+    test('use LogLevel set for each client', () {
+      final mockClient1 = MockClient();
+      final mockClient2 = MockClient();
+
+      putLumberdashToWorkByLogLevel(withClients: {
+        mockClient1: [LogLevel.warning, LogLevel.error],
+        mockClient2: [LogLevel.message, LogLevel.fatal]
+      });
+      logMessage('Message');
+      logWarning('Warning');
+      logFatal('Fatal');
+      logError('Error');
+
+      verifyNever(mockClient1.logMessage('Message'));
+      verify(mockClient1.logWarning('Warning')).called(1);
+      verifyNever(mockClient1.logFatal('Fatal'));
+      verify(mockClient1.logError('Error')).called(1);
+      verify(mockClient2.logMessage('Message')).called(1);
+      verifyNever(mockClient2.logWarning('Warning'));
+      verify(mockClient2.logFatal('Fatal')).called(1);
+      verifyNever(mockClient2.logError('Error'));
+    });
+
+    test('use all LogLevels', () {
+      final mockClient = MockClient();
+
+      putLumberdashToWork(withClients: [mockClient]);
+      logMessage('Message');
+      logWarning('Warning');
+      logFatal('Fatal');
+      logError('Error');
+
+      verify(mockClient.logMessage('Message')).called(1);
+      verify(mockClient.logWarning('Warning')).called(1);
+      verify(mockClient.logFatal('Fatal')).called(1);
+      verify(mockClient.logError('Error')).called(1);
+    });
+
+    test('filter client of a specific LogLevel', () {
+      final mockClient = FilterOutClient();
+
+      putLumberdashToWorkByLogLevel(withClients: {
+        mockClient: [LogLevel.message]
+      });
+      logMessage('Message', exceptFor: [FilterOutClient]);
+      logWarning('Warning');
+      logFatal('Fatal');
+      logError('Error');
+
+      verifyZeroInteractions(mockClient);
+    });
+  });
 }

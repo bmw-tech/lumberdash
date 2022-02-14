@@ -2,7 +2,7 @@ name: sentry_lumberdash
 description: >-
   Lumberdash plugin that sends your logs to Sentry with the proper
   severity level
-version: 3.2.0
+version: 3.3.0
 repository: https://github.com/bmw-tech/lumberdash
 issue_tracker: https://github.com/bmw-tech/lumberdash/issues
 homepage: https://bmw-tech.github.io/lumberdash/
