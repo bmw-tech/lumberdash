@@ -127,7 +127,9 @@ void main() {
     test('should use the the given client with LogLevel error', () {
       final mockClient = MockClient();
 
-      putLumberdashToWorkByLogLevel(withClients: {mockClient : [LogLevel.fatal]});
+      putLumberdashToWorkByLogLevel(withClients: {
+        mockClient: [LogLevel.fatal]
+      });
       logMessage('Message');
       logWarning('Warning');
       logFatal('Fatal');
@@ -139,10 +141,14 @@ void main() {
       verifyNever(mockClient.logError('Error'));
     });
 
-    test('should use the the given client with LogLevel message, warning, error', () {
+    test(
+        'should use the the given client with LogLevel message, warning, error',
+        () {
       final mockClient = MockClient();
 
-      putLumberdashToWorkByLogLevel(withClients: {mockClient : [LogLevel.message, LogLevel.warning, LogLevel.error]});
+      putLumberdashToWorkByLogLevel(withClients: {
+        mockClient: [LogLevel.message, LogLevel.warning, LogLevel.error]
+      });
       logMessage('Message');
       logWarning('Warning');
       logFatal('Fatal');
@@ -158,7 +164,10 @@ void main() {
       final mockClient1 = MockClient();
       final mockClient2 = MockClient();
 
-      putLumberdashToWorkByLogLevel(withClients: {mockClient1 : [LogLevel.warning, LogLevel.error], mockClient2 : [LogLevel.message, LogLevel.fatal]});
+      putLumberdashToWorkByLogLevel(withClients: {
+        mockClient1: [LogLevel.warning, LogLevel.error],
+        mockClient2: [LogLevel.message, LogLevel.fatal]
+      });
       logMessage('Message');
       logWarning('Warning');
       logFatal('Fatal');
@@ -192,7 +201,9 @@ void main() {
     test('filter client of a specific LogLevel', () {
       final mockClient = FilterOutClient();
 
-      putLumberdashToWorkByLogLevel(withClients: {mockClient: [LogLevel.message]});
+      putLumberdashToWorkByLogLevel(withClients: {
+        mockClient: [LogLevel.message]
+      });
       logMessage('Message', exceptFor: [FilterOutClient]);
       logWarning('Warning');
       logFatal('Fatal');
