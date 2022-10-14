@@ -1,6 +1,6 @@
 # firebase_lumberdash
 
-Plugin for [lumberdash](https://github.com/jorgecoca/lumberdash)
+Plugin for [lumberdash](https://github.com/bmw-tech/lumberdash)
 
 It sends your logs to [Firebase Analytics](https://firebase.google.com/docs/analytics).
 
